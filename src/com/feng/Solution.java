@@ -65,8 +65,13 @@ public class Solution {
      * @return
      */
     public int maxSubArray(int[] nums) {
-        int result = 0;
-        return result;
+        int max = nums[0], sum = 0;
+        for (int num : nums) {
+            sum = Math.max(sum + num, num);
+            max = Math.max(max, sum);
+        }
+
+        return max;
     }
 
 }

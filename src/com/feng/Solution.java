@@ -1,8 +1,6 @@
 package com.feng;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Solution {
 
@@ -70,8 +68,66 @@ public class Solution {
             sum = Math.max(sum + num, num);
             max = Math.max(max, sum);
         }
-
         return max;
+    }
+
+    /**
+     * 1. 两数之和
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSum(int[] nums, int target) {
+        int n1 = 0, n2 = 0;
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length - 1; i++) {
+            n1 = nums[i];
+            for (int j = i + 1; j < nums.length; j++) {
+                if ((n1 + nums[j]) == target) {
+                    result[0] = i;
+                    result[1] = j;
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 88. 合并两个有序数组
+     *
+     * @param nums1
+     * @param m
+     * @param nums2
+     * @param n
+     */
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = nums1.length;
+        while (n > 0) {
+            if (m > 0 && nums1[m - 1] > nums2[n - 1]) {
+                nums1[--i] = nums1[--m];
+            } else {
+                nums1[--i] = nums2[--n];
+            }
+        }
+        for (int num : nums1) {
+            System.out.print(num + " ");
+        }
+    }
+
+    /**
+     * 453. 最小操作次数使数组元素相等
+     *
+     * @param nums
+     * @return
+     */
+    public int minMoves(int[] nums) {
+        int count = 0;
+        int min = Arrays.stream(nums).min().getAsInt();
+        for (int num : nums) {
+            count += num - min;
+        }
+        return count;
     }
 
 }

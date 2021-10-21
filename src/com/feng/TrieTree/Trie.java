@@ -3,14 +3,14 @@ package com.feng.TrieTree;
 /**
  * 208. 实现 Trie (前缀树)
  */
-class TreeNode {
-    TreeNode son[]; //节点
-    boolean isEnd;  //结束标志
-
-    public TreeNode() {
-        son = new TreeNode[26]; //26个字母
-    }
-}
+//class TreeNode {
+//    TreeNode son[]; //节点
+//    boolean isEnd;  //结束标志
+//
+//    public TreeNode() {
+//        son = new TreeNode[26]; //26个字母
+//    }
+//}
 
 public class Trie {
 

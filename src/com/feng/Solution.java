@@ -130,4 +130,223 @@ public class Solution {
         return count;
     }
 
+    /**
+     * 66. 加一
+     *
+     * @param digits
+     * @return
+     */
+    public int[] plusOne(int[] digits) {
+        int n = digits.length - 1;
+        for (int i = n; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+        int[] res = new int[digits.length + 1];
+        res[0] = 1;
+        return res;
+    }
+
+    /**
+     * 121. 买卖股票的最佳时机
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfit(int[] prices) {
+        int max = 0;
+        int min = prices[0];
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < min) {
+                min = prices[i];
+            } else if (prices[i] - min > max) {
+                max = prices[i] - min;
+            }
+        }
+        return max;
+    }
+
+    public int maxProfit2(int[] prices) {
+        if (prices.length <= 1) {
+            return 0;
+        }
+        int max = 0;
+        int min = prices[0];
+        for (int i = 0; i < prices.length; i++) {
+            min = Math.min(min, prices[i]);
+            max = Math.max(max, prices[i] - min);
+        }
+        return max;
+    }
+
+    /**
+     * 229. 求众数 II
+     *
+     * @param nums
+     * @return
+     */
+    public List<Integer> majorityElement(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
+        int count = 0, temp = nums[0];
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != temp) {
+                if (count > (n / 3)) {
+                    list.add(nums[i - 1]);
+                }
+                temp = nums[i];
+                count = 0;
+            }
+            count++;
+        }
+        if (count > (n / 3)) {
+            list.add(nums[n - 1]);
+        }
+        return list;
+    }
+
+    /**
+     * 摩尔投票法
+     *
+     * @param nums
+     * @return
+     */
+    public List<Integer> majorityElement2(int[] nums) {
+        int e1 = 0;
+        int e2 = 0;
+        int v1 = 0;
+        int v2 = 0;
+        for (int num : nums) {
+            if (v1 > 0 && e1 == num) {
+                v1++;
+            } else if (v2 > 0 && e2 == num) {
+                v2++;
+            } else if (v1 == 0) {
+                e1 = num;
+                v1++;
+            } else if (v2 == 0) {
+                e2 = num;
+                v2++;
+            } else {
+                v1--;
+                v2--;
+            }
+        }
+        int c1 = 0, c2 = 0, n = nums.length / 3;
+        for (int num : nums) {
+            if (v1 > 0 && e1 == num) {
+                c1++;
+            }
+            if (v2 > 0 && e2 == num) {
+                c2++;
+            }
+        }
+        List<Integer> list = new ArrayList<>();
+        if (v1 > 0 && c1 > n) {
+            list.add(e1);
+        }
+        if (v2 > 0 && c2 > n) {
+            list.add(e2);
+        }
+        return list;
+    }
+
+    /**
+     * 566. 重塑矩阵
+     *
+     * @param mat
+     * @param r
+     * @param c
+     * @return
+     */
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+
+        return mat;
+    }
+
+    /**
+     * 74. 搜索二维矩阵
+     *
+     * @param matrix
+     * @param target
+     * @return
+     */
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        int i = 0;
+        for (; i < m; i++) {
+            int n = matrix[i].length;
+            if (target <= matrix[i][n - 1]) {
+                for (int num : matrix[i]) {
+                    if (num == target) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 496. 下一个更大元素 I
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int length1 = nums1.length;
+        int length2 = nums2.length;
+        int[] res = new int[length1];
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < length2 - 1; i++) {
+            map.put(nums2[i], -1);
+            for (int j = i + 1; j < length2; j++) {
+                if (nums2[i] < nums2[j]) {
+                    map.put(nums2[i], nums2[j]);
+                    break;
+                }
+            }
+        }
+        map.put(nums2[length2 - 1], -1);
+        for (int i = 0; i < length1; i++) {
+            int temp = map.get(nums1[i]);
+            res[i] = temp;
+        }
+        for (int n : res) {
+            System.out.print(n + " ");
+        }
+        return res;
+    }
+
+    /**
+     * 单调栈
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] nextGreaterElement2(int[] nums1, int[] nums2) {
+        int[] res = new int[nums1.length];
+        Map<Integer, Integer> map = new HashMap<>();
+        Stack<Integer> stack = new Stack<>();
+        for (int i = nums2.length - 1; i >= 0; i--) {
+            //比较大小
+            while (!stack.isEmpty() && stack.peek() <= nums2[i]) {
+                //小的踢出去
+                stack.pop();
+            }
+            map.put(nums2[i], stack.isEmpty() ? -1 : stack.peek());
+            stack.push(nums2[i]);
+        }
+        for (int i = 0; i < nums1.length; i++) {
+            res[i] = map.get(nums1[i]);
+            System.out.print(res[i] + " ");
+        }
+        return res;
+    }
 }

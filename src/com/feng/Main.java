@@ -17,7 +17,17 @@ public class Main {
 //        int[] num1 = {1, 2, 3, 0, 0, 0, 0};
 //        int[] num2 = {1, 2, 5, 6};
 //        new Solution().merge(num1, 3, num2, 4);
-        int[] num = {1, 2, 3};
-        System.out.println(new Solution().minMoves(num));
+//        int[] num = {1, 1, 1, 3, 3, 2, 2, 2};
+//        System.out.println(new Solution().maxProfit(num));
+//        int[] new_nums = new Solution().plusOne(num);
+//        for (int n : new_nums) {
+//            System.out.print(n + " ");
+//        }
+//        int[][] num = {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+//        int[][] num = {{1}};
+//        System.out.println(new Solution().searchMatrix(num, 2));
+        int[] num1 = {1,3,5,2,4};
+        int[] num2 = {6,5,4,3,2,1,7};
+        System.out.println(new Solution().nextGreaterElement2(num1, num2));
     }
 }

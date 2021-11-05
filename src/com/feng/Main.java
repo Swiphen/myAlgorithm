@@ -1,5 +1,7 @@
 package com.feng;
 
+import java.util.Date;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -26,8 +28,17 @@ public class Main {
 //        int[][] num = {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
 //        int[][] num = {{1}};
 //        System.out.println(new Solution().searchMatrix(num, 2));
-        int[] num1 = {1,3,5,2,4};
-        int[] num2 = {6,5,4,3,2,1,7};
-        System.out.println(new Solution().nextGreaterElement2(num1, num2));
+//        int[] num1 = {1, 3, 5, 2, 4};
+//        int[] num2 = {6, 5, 4, 3, 2, 1, 7};
+//        System.out.println(new Solution().nextGreaterElement2(num1, num2));
+//        int[][] num = {{1, 2}};
+//        new Solution().matrixReshape(num, 2,1);
+//        System.out.println(new Solution().generate(10).toString());
+//        int[] num1 = {100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0};
+//        System.out.println(new Solution().distributeCandies(num1));
+//        System.out.println(new Solution().isPerfectSquare(17));
+        int[] num2 = {1,2,3,4};
+        System.out.println(new Solution().longestSubsequence1(num2, 1));
+
     }
 }

@@ -264,8 +264,51 @@ public class Solution {
      * @return
      */
     public int[][] matrixReshape(int[][] mat, int r, int c) {
+        int m = 0;     //行
+        int n = 0;  //列
+        int sum = mat.length * mat[0].length;
+        //判断是否符合要求
+        if (sum != r * c) {
+            for (int[] nums : mat) {
+                for (int num : nums) {
+                    System.out.print(num + " ");
+                }
+                System.out.println();
+            }
+            return mat;
+        }
+        int[][] res = new int[r][c];
 
-        return mat;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (n == mat[m].length) {
+                    m++;
+                    n = 0;
+                }
+                res[i][j] = mat[m][n];
+                n++;
+            }
+        }
+        for (int[] nums : res) {
+            for (int num : nums) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+        return res;
+    }
+
+    public int[][] matrixReshape2(int[][] mat, int r, int c) {
+        int m = mat.length;
+        int n = mat[0].length;
+        if (m * n != r * c) {
+            return mat;
+        }
+        int[][] res = new int[r][c];
+        for (int i = 0; i < m * n; i++) {
+            res[i / c][i % c] = mat[i / n][i % n];
+        }
+        return res;
     }
 
     /**
@@ -346,6 +389,141 @@ public class Solution {
         for (int i = 0; i < nums1.length; i++) {
             res[i] = map.get(nums1[i]);
             System.out.print(res[i] + " ");
+        }
+        return res;
+    }
+
+    /**
+     * 118. 杨辉三角
+     *
+     * @param numRows
+     * @return
+     */
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> row = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
+                    row.add(1);
+                } else {
+                    row.add(res.get(i - 1).get(j - 1) + res.get(i - 1).get(j));
+                }
+            }
+            res.add(row);
+        }
+        return res;
+    }
+
+    /**
+     * 575. 分糖果
+     *
+     * @param candyType
+     * @return
+     */
+    public int distributeCandies(int[] candyType) {
+        Set<Integer> set = new HashSet<>();
+        int n = candyType.length / 2;
+        for (int i : candyType) {
+            set.add(i);
+        }
+        return set.size() < n ? set.size() : n;
+    }
+
+    /**
+     * 237. 删除链表中的节点
+     *
+     * @param node
+     */
+    public void deleteNode(ListNode_1 node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+
+    /**
+     * 2. 两数相加
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode_2 addTwoNumbers(ListNode_2 l1, ListNode_2 l2) {
+        ListNode_2 res = new ListNode_2();
+        int n1 = 0, n2 = 0;
+
+        System.out.println(n1);
+        return res;
+    }
+
+    /**
+     * 367. 有效的完全平方数
+     *
+     * @param num
+     * @return
+     */
+    public boolean isPerfectSquare(int num) {
+//        //1.使用sqrt()方法
+//        int n = (int) Math.sqrt(num);
+//        return n * n == num;
+
+//        //2.暴力解法
+//        long x = 1, square = 1;
+//        while (square <= num) {
+//            if (square == num) {
+//                return true;
+//            }
+//            x++;
+//            square = x * x;
+//        }
+//        return false;
+
+        //3.二分查找
+        int left = 0, right = num;
+        while (left <= right) {
+            int mid = (right - left) / 2 + left;
+            long square = (long) mid * mid;
+            if (square < num) {
+                left = mid + 1;
+            } else if (square > num) {
+                right = mid - 1;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 1218. 最长定差子序列
+     *
+     * @param arr
+     * @param difference
+     * @return
+     */
+    public int longestSubsequence(int[] arr, int difference) {
+        int res = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int temp = arr[i];
+            List<Integer> list = new ArrayList<>();
+            list.add(arr[i]);
+            for (int j = i + 1; j < arr.length; j++) {
+                if (temp + difference == arr[j]) {
+                    list.add(arr[j]);
+                    temp = arr[j];
+                }
+            }
+            System.out.println(list.toString());
+            res = res > list.size() ? res : list.size();
+        }
+        return res;
+    }
+
+    public int longestSubsequence1(int[] arr, int difference) {
+        int res = 0;
+        Map<Integer, Integer> dp = new HashMap<>();
+        for (int n : arr) {
+            dp.put(n, dp.getOrDefault(n - difference, 0) + 1);
+            res = Math.max(res, dp.get(n));
         }
         return res;
     }

@@ -1,5 +1,7 @@
 package com.feng;
 
+import com.feng.multithreading.Foo;
+
 import java.util.Date;
 
 public class Main {
@@ -37,8 +39,15 @@ public class Main {
 //        int[] num1 = {100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0};
 //        System.out.println(new Solution().distributeCandies(num1));
 //        System.out.println(new Solution().isPerfectSquare(17));
-        int[] num2 = {1,2,3,4};
-        System.out.println(new Solution().longestSubsequence1(num2, 1));
+//        int[] num2 = {1,2,3,4};
+//        System.out.println(new Solution().longestSubsequence1(num2, 1));
+//        int[] nums = {0};
+//        System.out.println(new Solution().missingNumber1(nums));
+        System.out.println(new Solution().getHint("11", "10"));
+
+        Thread thread1 = new Thread();
+        Thread thread2 = new Thread();
+        Thread thread3 = new Thread();
 
     }
 }

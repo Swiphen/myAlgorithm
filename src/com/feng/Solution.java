@@ -527,4 +527,95 @@ public class Solution {
         }
         return res;
     }
+
+    /**
+     * 268. 丢失的数字
+     *
+     * @param nums
+     * @return
+     */
+    public int missingNumber(int[] nums) {
+        int res = nums.length;
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if (i != nums[i]) {
+                return i;
+            }
+        }
+        return res;
+    }
+
+    public int missingNumber1(int[] nums) {
+        int n = nums.length, sum = 0;
+        sum = n * (n + 1) / 2;
+        for (int i = 0; i < n; i++) {
+            sum -= nums[i];
+        }
+        return sum;
+    }
+
+    /**
+     * 299. 猜数字游戏
+     *
+     * @param secret
+     * @param guess
+     * @return
+     */
+    public String getHint(String secret, String guess) {
+        int num1 = 0, num2 = 0, i = 0;
+        char[] c1 = secret.toCharArray();
+        char[] c2 = guess.toCharArray();
+        char[] c3 = new char[c2.length];
+        int n1 = secret.length() - 1, n2 = guess.length() - 1;
+        Map<Character, Integer> map = new HashMap<>();
+        while (n1 >= 0 && n2 >= 0) {
+            if (c1[n1] == c2[n2]) {
+                num1++;
+            } else {
+                c3[i] = c2[n2];
+                i++;
+                if (!map.containsKey(c1[n1])) {
+                    map.put(c1[n1], 1);
+                } else {
+                    map.put(c1[n1], map.get(c1[n1]) + 1);
+                }
+            }
+            n1--;
+            n2--;
+        }
+        for (char c : c3) {
+            if (map.containsKey(c)) {
+                if (map.get(c) != 0) {
+                    num2++;
+                    map.put(c, map.get(c) - 1);
+                }
+            }
+        }
+        String res = num1 + "A" + num2 + "B";
+        return res;
+    }
+
+    public String getHint2(String secret, String guess) {
+        int n = secret.length();
+        int a = 0, b = 0;
+        int[] cnt1 = new int[10];
+        int[] cnt2 = new int[10];
+        for (int i = 0; i < n; i++) {
+            int c1 = secret.charAt(i) - '0', c2 = guess.charAt(i) - '0';
+            if (c1 == c2) {
+                a++;
+            } else {
+                cnt1[c1]++;
+                cnt2[c2]++;
+            }
+        }
+        for (int i = 0; i < 10; i++) {
+            b += Math.min(cnt1[i], cnt2[i]);
+        }
+        return a + "A" + b + "B";
+    }
+
+
+
+
 }

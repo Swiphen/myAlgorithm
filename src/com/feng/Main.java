@@ -43,11 +43,13 @@ public class Main {
 //        System.out.println(new Solution().longestSubsequence1(num2, 1));
 //        int[] nums = {0};
 //        System.out.println(new Solution().missingNumber1(nums));
-        System.out.println(new Solution().getHint("11", "10"));
+//        System.out.println(new Solution().getHint("11", "10"));
+//        int[] time = {1, 2};
+//        System.out.println(new Solution().findPoisonedDuration(time, 2));
+//        int[] time = {1, 3, 2, 2, 5, 2, 3, 7};
+//        System.out.println(new Solution().findLHS(time));
+//        System.out.println(new Solution().integerReplacement(8));
 
-        Thread thread1 = new Thread();
-        Thread thread2 = new Thread();
-        Thread thread3 = new Thread();
-
+        System.out.println(new Solution().buddyStrings("abcaa", "abcbb"));
     }
 }

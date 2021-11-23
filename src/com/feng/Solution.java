@@ -615,7 +615,138 @@ public class Solution {
         return a + "A" + b + "B";
     }
 
+    /**
+     * 495. 提莫攻击
+     *
+     * @param timeSeries
+     * @param duration
+     * @return
+     */
+    public int findPoisonedDuration(int[] timeSeries, int duration) {
+        int res = 0, n = timeSeries.length;
+        for (int i = 0; i < n; i++) {
+            if (i + 1 < n) {
+                if (timeSeries[i + 1] - timeSeries[i] < duration) {
+                    res += timeSeries[i + 1] - timeSeries[i];
+                } else {
+                    res += duration;
+                }
+            } else {
+                res += duration;
+            }
+        }
+        return res;
+    }
 
+    /**
+     * 剑指 Offer II 001. 整数除法
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    public int divide(int a, int b) {
+        int res = 0;
+
+        return res;
+    }
+
+    /**
+     * 375. 猜数字大小 II
+     *
+     * @param n
+     * @return
+     */
+    public int getMoneyAmount(int n) {
+        int res = 0;
+
+        return res;
+    }
+
+    /**
+     * 397. 整数替换
+     *
+     * @param n
+     * @return
+     */
+    public int integerReplacement(int n) {
+        int res = 0;
+        if (n == 1) {
+            return res;
+        }
+        //奇数
+        if (n / 2 != 0) {
+            integerReplacement(n + 1);
+            integerReplacement(n - 1);
+        } else {
+            res = Math.max(res, integerReplacement(n / 2));
+        }
+        res++;
+
+        return res;
+    }
+
+    /**
+     * 594. 最长和谐子序列
+     *
+     * @param nums
+     * @return
+     */
+    public int findLHS(int[] nums) {
+        int res = 0, n = nums.length;
+        Arrays.sort(nums);
+        for (int m : nums) {
+            System.out.print(m + " ");
+        }
+        for (int i = 0, j = 0; j < n; j++) {
+            while (i < j && nums[j] - nums[i] > 1) {
+                i++;
+            }
+            if (nums[j] - nums[i] == 1) {
+                res = Math.max(res, j - i + 1);
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * 859. 亲密字符串
+     *
+     * @param s
+     * @param goal
+     * @return
+     */
+    public boolean buddyStrings(String s, String goal) {
+        if (s.length() != goal.length()) {
+            return false;
+        }
+
+        int[] c1 = new int[26];
+        int[] c2 = new int[26];
+        int sum = 0;
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            int a = s.charAt(i) - 'a';
+            int b = goal.charAt(i) - 'a';
+            c1[a]++;
+            c2[b]++;
+            if (a != b) {
+                sum++;
+            }
+        }
+        boolean ok = false;
+        for (int i = 0; i < 26; i++) {
+            if (c1[i] != c2[i]) {
+                return false;
+            }
+            if (c1[i] > 1) {
+                ok = true;
+            }
+        }
+
+        return sum == 2 || (sum == 0 && ok);
+    }
 
 
 }

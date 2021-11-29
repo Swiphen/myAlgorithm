@@ -658,10 +658,28 @@ public class Solution {
      * @return
      */
     public int getMoneyAmount(int n) {
-        int res = 0;
-
-        return res;
+        return dfs(1, n);
     }
+
+    static int N = 210;
+    static int[][] cache = new int[N][N];
+
+    int dfs(int l, int r) {
+        if (l >= r) {
+            return 0;
+        }
+        if (cache[l][r] != 0) {
+            return cache[l][r];
+        }
+        int ans = 0x3f3f3f3f;
+        for (int x = l; x <= r; x++) {
+            int cur = Math.max(dfs(l, x - 1), dfs(x + 1, r)) + x;
+            ans = Math.min(ans, cur);
+        }
+        cache[l][r] = ans;
+        return ans;
+    }
+
 
     /**
      * 397. 整数替换
@@ -670,20 +688,13 @@ public class Solution {
      * @return
      */
     public int integerReplacement(int n) {
-        int res = 0;
         if (n == 1) {
-            return res;
+            return 0;
         }
-        //奇数
-        if (n / 2 != 0) {
-            integerReplacement(n + 1);
-            integerReplacement(n - 1);
-        } else {
-            res = Math.max(res, integerReplacement(n / 2));
+        if (n % 2 == 0) {
+            return 1 + integerReplacement(n / 2);
         }
-        res++;
-
-        return res;
+        return 2 + Math.min(integerReplacement(n / 2), integerReplacement(n / 2 + 1));
     }
 
     /**
@@ -746,6 +757,45 @@ public class Solution {
         }
 
         return sum == 2 || (sum == 0 && ok);
+    }
+
+    /**
+     * 423. 从英文中重建数字
+     *
+     * @param s
+     * @return
+     */
+    public String originalDigits(String s) {
+//        String ans = "";
+//        String[] ss = new String[]{"zeno", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        Map<Character, Integer> flag = new HashMap<>();
+        char[] chars = s.toCharArray();
+        Arrays.sort(chars);
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < chars.length; i++) {
+            map.put(chars[i], map.getOrDefault(chars[i], 0) + 1);
+        }
+        int[] nums = new int[10];
+        nums[0] = map.getOrDefault('z', 0);
+        nums[2] = map.getOrDefault('w', 0);
+        nums[4] = map.getOrDefault('u', 0);
+        nums[6] = map.getOrDefault('x', 0);
+        nums[8] = map.getOrDefault('g', 0);
+        nums[5] = map.getOrDefault('f', 0) - nums[4];
+        nums[3] = map.getOrDefault('h', 0) - nums[8];
+        nums[7] = map.getOrDefault('s', 0) - nums[6];
+        nums[1] = map.getOrDefault('o', 0) - nums[0] - nums[2] - nums[4];
+        nums[9] = map.getOrDefault('i', 0) - nums[5] - nums[6] - nums[8];
+
+
+        StringBuffer ans = new StringBuffer();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < nums[i]; j++) {
+                ans.append((char) (i + '0'));
+            }
+        }
+
+        return ans.toString();
     }
 
 

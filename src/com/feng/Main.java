@@ -50,6 +50,9 @@ public class Main {
 //        System.out.println(new Solution().findLHS(time));
 //        System.out.println(new Solution().integerReplacement(8));
 
-        System.out.println(new Solution().buddyStrings("abcaa", "abcbb"));
+//        System.out.println(new Solution().buddyStrings("abcaa", "abcbb"));
+//        System.out.println(new Solution().originalDigits("zeroonetwothreefourfivesixseveneightnine"));
+//        System.out.println(new Solution().integerReplacement(2147483647));
+        System.out.println(new Solution().getMoneyAmount(10));
     }
 }

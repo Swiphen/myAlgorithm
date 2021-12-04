@@ -798,5 +798,163 @@ public class Solution {
         return ans.toString();
     }
 
+    /**
+     * 400. 第 N 位数字
+     *
+     * @param n
+     * @return
+     */
+    public int findNthDigit(int n) {
 
+        int len = 1;
+        //确定n的范围
+        while (n > len * 9 * Math.pow(10, len - 1)) {
+            n -= len * 9 * Math.pow(10, len - 1);
+            len++;
+        }
+        //len的最小值
+        long s = (long) (Math.pow(10, len - 1));
+        //目标数字x
+        long x = n / len - 1 + s;
+        n -= (x - s + 1) * len;
+
+        return n == 0 ? (int) (x % 10) : (int) ((x + 1) / (int) (Math.pow(10, len - n)) % 10);
+    }
+
+    /**
+     * 1446. 连续字符
+     *
+     * @param s
+     * @return
+     */
+    public int maxPower(String s) {
+        if (s.length() == 0) {
+            return 0;
+        }
+        if (s.length() == 1) {
+            return 1;
+        }
+        int num = 1, max = 0;
+        char c = s.charAt(0);
+        for (int i = 1; i < s.length(); i++) {
+            if (c != s.charAt(i)) {
+                c = s.charAt(i);
+                max = Math.max(max, num);
+                num = 0;
+            }
+            num++;
+        }
+        max = Math.max(max, num);
+        return max;
+    }
+
+    /**
+     * 506. 相对名次
+     *
+     * @param score
+     * @return
+     */
+    public String[] findRelativeRanks(int[] score) {
+        Map<Integer, String> map = new HashMap<>();
+        int n = score.length;
+        String[] ans = new String[score.length];
+        int[] arr = score.clone();
+        Integer[] arrs = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            arrs[i] = arr[i];
+        }
+        Arrays.sort(arrs, Collections.reverseOrder());
+        if (n >= 1) {
+            map.put(arrs[0], "Gold Medal");
+        }
+        if (n >= 2) {
+            map.put(arrs[1], "Silver Medal");
+        }
+        if (n >= 3) {
+            map.put(arrs[2], "Bronze Medal");
+        }
+        for (int i = 0; i < n; i++) {
+            if (i > 2) {
+                map.put(arrs[i], i + 1 + "");
+            }
+        }
+        for (int j = 0; j < n; j++) {
+            ans[j] = map.get(score[j]);
+        }
+        for (String s : ans) {
+            System.out.print(s + "  ");
+        }
+
+        return ans;
+    }
+
+    /**
+     * 1005. K 次取反后最大化的数组和
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int largestSumAfterKNegations(int[] nums, int k) {
+        int ans = 0;
+        while (k > 0) {
+            Arrays.sort(nums);
+            nums[0] = -nums[0];
+            k--;
+        }
+
+        for (int num : nums) {
+            ans += num;
+        }
+        return ans;
+    }
+
+    public int largestSumAfterKNegations2(int[] nums, int k) {
+        int ans = 0;
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < 0 && k > 0) {
+                nums[i] = -nums[i];
+                k--;
+            }
+        }
+        Arrays.sort(nums);
+        if (k % 2 != 0) {
+            nums[0] = -nums[0];
+        }
+        for (int num : nums) {
+            ans += num;
+        }
+        return ans;
+    }
+
+
+    /**
+     * 383. 赎金信
+     *
+     * @param ransomNote
+     * @param magazine
+     * @return
+     */
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int len = magazine.length();
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            char c1 = magazine.charAt(i);
+            map.put(c1, map.getOrDefault(c1, 0) + 1);
+        }
+        for (int i = 0; i < ransomNote.length(); i++) {
+            char c2 = ransomNote.charAt(i);
+            if (!map.containsKey(c2)) {
+                return false;
+            } else {
+                if (map.get(c2) > 0) {
+                    map.put(c2, map.get(c2) - 1);
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }

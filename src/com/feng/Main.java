@@ -53,6 +53,17 @@ public class Main {
 //        System.out.println(new Solution().buddyStrings("abcaa", "abcbb"));
 //        System.out.println(new Solution().originalDigits("zeroonetwothreefourfivesixseveneightnine"));
 //        System.out.println(new Solution().integerReplacement(2147483647));
-        System.out.println(new Solution().getMoneyAmount(10));
+//        System.out.println(new Solution().getMoneyAmount(10));
+//        System.out.println(new Solution().maxPower("leetcode"));
+//        System.out.println(new Solution().maxPower("abbcccddddeeeeedcba"));
+//        System.out.println(new Solution().maxPower("triplepillooooow"));
+//        System.out.println(new Solution().maxPower("hooraaaaaaaaaaay"));
+//        System.out.println(new Solution().maxPower("tourist"));
+//        System.out.println(new Solution().maxPower("cc"));
+//        System.out.println(new Solution().maxPower("acc"));
+        int[] time = {-2,5,0,2,-2};
+//        System.out.println(new Solution().findRelativeRanks(time));
+//        System.out.println(new Solution().largestSumAfterKNegations2(time,3));
+        System.out.println(new Solution().canConstruct("aa","ab"));
     }
 }

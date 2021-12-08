@@ -957,4 +957,83 @@ public class Solution {
         }
         return true;
     }
+
+    /**
+     * 1816. 截断句子
+     *
+     * @param s
+     * @param k
+     * @return
+     */
+    public String truncateSentence(String s, int k) {
+        String[] s1 = s.split(" ");
+        s = "";
+        for (int i = 0; i < k; i++) {
+            if (i == k - 1) {
+                s += s1[i];
+            } else {
+                s += (s1[i] + " ");
+            }
+        }
+        return s;
+    }
+
+    public String truncateSentence1(String s, int k) {
+        StringBuilder builder = new StringBuilder();
+        int n = s.length(), flag = 0;
+        for (int i = 0; i < n; i++) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                flag++;
+            }
+            if (flag < k) {
+                builder.append(c);
+            }
+        }
+        return builder.toString();
+    }
+
+    /**
+     * 1034. 边界着色
+     *
+     * @param grid
+     * @param row
+     * @param col
+     * @param color
+     * @return
+     */
+    public int[][] colorBorder(int[][] grid, int row, int col, int color) {
+
+
+        return null;
+    }
+
+    /**
+     * 1684. 统计一致字符串的数目
+     *
+     * @param allowed
+     * @param words
+     * @return
+     */
+    public int countConsistentStrings(String allowed, String[] words) {
+        int ans = 0;
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < allowed.length(); i++) {
+            set.add(allowed.charAt(i));
+        }
+        for (String s : words) {
+            int flag = set.size();
+            for (int j = 0; j < s.length(); j++) {
+                if (!set.contains(s.charAt(j))) {
+                    flag += 1;
+                    break;
+                }
+            }
+            if (flag == set.size()) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
 }

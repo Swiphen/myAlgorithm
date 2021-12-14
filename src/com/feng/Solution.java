@@ -1036,4 +1036,211 @@ public class Solution {
         return ans;
     }
 
+    /**
+     * 794. 有效的井字游戏
+     *
+     * @param board
+     * @return
+     */
+    public boolean validTicTacToe(String[] board) {
+        int xNum = 0, oNum = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                char c = board[i].charAt(j);
+                if ('X' == c) {
+                    xNum++;
+                } else if ('O' == c) {
+                    oNum++;
+                }
+            }
+        }
+        if (xNum < oNum || xNum - oNum > 1) {
+            return false;
+        }
+
+
+        return true;
+    }
+
+    /**
+     * 748. 最短补全词
+     *
+     * @param licensePlate
+     * @param words
+     * @return
+     */
+    public String shortestCompletingWord(String licensePlate, String[] words) {
+        int ans = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        licensePlate = licensePlate.toLowerCase();
+        for (int i = 0; i < licensePlate.length(); i++) {
+            char c = licensePlate.charAt(i);
+            if (c > 'a' - 1 && c < 'z' + 1) {
+                map.put(c, map.getOrDefault(c, 0) + 1);
+            }
+        }
+        for (int i = 0; i < words.length - 1; i++) {
+            for (int j  = 0; j < words.length - i - 1; j++) {
+                if (words[j].length() > words[j + 1].length()) {
+                    String temp = words[j];
+                    words[j] = words[j + 1];
+                    words[j + 1] = temp;
+                }
+            }
+        }
+        Map<Character, Integer> flag = new HashMap<>();
+        flag.putAll(map);
+        for (String word : words) {
+            for (int j = 0; j < word.length(); j++) {
+                if (map.containsKey(word.charAt(j))) {
+                    if (map.get(word.charAt(j)) > 0) {
+                        map.put(word.charAt(j), map.get(word.charAt(j)) - 1);
+                    }
+                    if (map.get(word.charAt(j)) == 0) {
+                        map.remove(word.charAt(j));
+                        ans += 1;
+                    }
+                }
+            }
+            if (ans == flag.size()) {
+                return word;
+            }
+            ans = 0;
+            map.putAll(flag);
+        }
+        return "";
+    }
+
+    /**
+     * 709. 转换成小写字母
+     *
+     * @param s
+     * @return
+     */
+    public String toLowerCase(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= 'A' && c <= 'Z') {
+                c = (char) (c + 32);
+            }
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 807. 保持城市天际线
+     *
+     * @param grid
+     * @return
+     */
+    public int maxIncreaseKeepingSkyline(int[][] grid) {
+        int ans = 0;
+        int max = 0, min = 0;
+        int m = grid.length, n = grid[0].length;
+        int[] iMax = new int[n];
+        int[] jMax = new int[m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (max < grid[i][j]) {
+                    max = grid[i][j];
+                }
+            }
+            iMax[i] = max;
+            max = 0;
+        }
+        for (int j = 0; j < n; j++) {
+            for (int i = 0; i < m; i++) {
+                if (max < grid[i][j]) {
+                    max = grid[i][j];
+                }
+            }
+            jMax[j] = max;
+            max = 0;
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] != iMax[i] && grid[i][j] != jMax[j]) {
+                    min = iMax[i] < jMax[j] ? iMax[i] : jMax[j];
+                    ans += min - grid[i][j];
+                    grid[i][j] = min;
+                }
+            }
+        }
+
+        return ans;
+    }
+
+    public int maxIncreaseKeepingSkyline2(int[][] grid) {
+        int ans = 0;
+        int m = grid.length, n = grid[0].length;
+        int[] iMax = new int[n];
+        int[] jMax = new int[m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                iMax[i] = Math.max(iMax[i], grid[i][j]);
+                jMax[j] = Math.max(jMax[j], grid[i][j]);
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] != iMax[i] && grid[i][j] != jMax[j]) {
+                    ans += Math.min(iMax[i], jMax[j]) - grid[i][j];
+                }
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 630. 课程表 III
+     *
+     * @param courses
+     * @return
+     */
+    public int scheduleCourse(int[][] courses) {
+        int m = courses.length;
+        int a = 0, b = 0, flag = 0;
+        int[][] copy = new int[m][2];
+        for (int i = 0; i < m; i++) {
+            if (!(courses[i][0] > courses[i][1])) {
+                copy[flag][0] = courses[i][0];
+                copy[flag][1] = courses[i][1];
+                flag++;
+            }
+        }
+        if (flag > 0) {
+            //排序
+            for (int i = 1; i < flag; i++) {
+                if (copy[i][1] < copy[i - 1][1]) {
+                    a = copy[i][0];
+                    b = copy[i][1];
+                    copy[i][0] = copy[i - 1][0];
+                    copy[i][1] = copy[i - 1][1];
+                    copy[i - 1][0] = a;
+                    copy[i - 1][1] = b;
+                }
+            }
+            a = 0;
+            int ans = 0;
+            for (int i = 0; i < flag - 1; i++) {
+                a += copy[i][0];
+                if (a > copy[i + 1][1]) {
+                    break;
+                } else {
+                    ans++;
+                }
+            }
+            a += copy[flag - 1][0];
+            if (a > copy[flag - 1][1]) {
+                return ans;
+            } else {
+                ans++;
+            }
+            return ans;
+        } else {
+            return 0;
+        }
+    }
 }

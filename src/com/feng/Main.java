@@ -29,7 +29,36 @@ public class Main {
 //        System.out.println(new Solution().largestSumAfterKNegations2(time,3));
 //        System.out.println(new Solution().canConstruct("aa","ab"));
 //        System.out.println(new Solution().truncateSentence("chopper",1));
-        String[] b = {"a","b","c","ab","ac","bc","abc"};
-        System.out.println(new Solution().countConsistentStrings("abc", b));
+//        String[] b = {"a","b","c","ab","ac","bc","abc"};
+//        System.out.println(new Solution().countConsistentStrings("abc", b));
+//        String s = "2021-11-11 12:00:00";
+//        SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        SimpleDateFormat sdf4 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//        Date date1 = sdf3.parse(s);
+//        System.out.println(date1);
+//        System.out.println(sdf4.format(date1));
+//        String[] board = {"O  ", "   ", "   "};
+//        System.out.println(new Solution().validTicTacToe(board));
+//        Date date = new Date();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:ss");
+//        String format = sdf.format(date);
+//        System.out.println(sdf.format(date));
+//        System.out.println(format);
+
+
+//        String licensePlate = "";
+//        String[] words = {};
+//        System.out.println(new Solution().shortestCompletingWord(licensePlate, words));
+
+//        int[][] grid = {{3, 0, 8, 4}, {2, 4, 5, 7}, {9, 2, 6, 3}, {0, 3, 1, 0}};
+//        System.out.println(new Solution().maxIncreaseKeepingSkyline(grid));
+//        int[][] courses = {{100, 200}, {200, 1300}, {1000, 1250}, {2000, 3200}};
+//        int[][] courses = {{5, 5}, {4, 6}, {2, 6}};
+//        int[][] courses = {{3, 2}, {4, 3}};
+
+//        System.out.println(new Solution().scheduleCourse(courses));
+//        String[] str = {"XOX", " X ", "   "};
+//        System.out.println(new Solution().validTicTacToe(str));
+
     }
 }

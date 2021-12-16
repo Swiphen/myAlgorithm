@@ -732,7 +732,6 @@ public class Solution {
         if (s.length() != goal.length()) {
             return false;
         }
-
         int[] c1 = new int[26];
         int[] c2 = new int[26];
         int sum = 0;
@@ -805,7 +804,6 @@ public class Solution {
      * @return
      */
     public int findNthDigit(int n) {
-
         int len = 1;
         //确定n的范围
         while (n > len * 9 * Math.pow(10, len - 1)) {
@@ -994,7 +992,7 @@ public class Solution {
     }
 
     /**
-     * 1034. 边界着色
+     * 1034. 边界着色   （未完成）
      *
      * @param grid
      * @param row
@@ -1037,7 +1035,7 @@ public class Solution {
     }
 
     /**
-     * 794. 有效的井字游戏
+     * 794. 有效的井字游戏     （未完成）
      *
      * @param board
      * @return
@@ -1063,7 +1061,7 @@ public class Solution {
     }
 
     /**
-     * 748. 最短补全词
+     * 748. 最短补全词   （待优化）
      *
      * @param licensePlate
      * @param words
@@ -1080,7 +1078,7 @@ public class Solution {
             }
         }
         for (int i = 0; i < words.length - 1; i++) {
-            for (int j  = 0; j < words.length - i - 1; j++) {
+            for (int j = 0; j < words.length - i - 1; j++) {
                 if (words[j].length() > words[j + 1].length()) {
                     String temp = words[j];
                     words[j] = words[j + 1];
@@ -1168,7 +1166,6 @@ public class Solution {
                 }
             }
         }
-
         return ans;
     }
 
@@ -1243,4 +1240,18 @@ public class Solution {
             return 0;
         }
     }
+
+    /**
+     * 851. 喧闹和富有
+     *
+     * @param richer
+     * @param quiet
+     * @return
+     */
+    public int[] loudAndRich(int[][] richer, int[] quiet) {
+
+
+        return null;
+    }
+
 }

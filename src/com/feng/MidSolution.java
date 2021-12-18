@@ -31,4 +31,25 @@ public class MidSolution {
 
         return ans;
     }
+
+    /**
+     * 419. 甲板上的战舰
+     *
+     * @param board
+     * @return
+     */
+    public int countBattleships(char[][] board) {
+        int ans = 0;
+        int m = board.length;
+        int n = board[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(board[i][j]);
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+        return ans;
+    }
 }

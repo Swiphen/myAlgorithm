@@ -69,4 +69,28 @@ public class EasySolution {
         }
         return dp[n];
     }
+
+    /**
+     * 1518. 换酒问题
+     *
+     * @param numBottles
+     * @param numExchange
+     * @return
+     */
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int m = numBottles / numExchange;
+        int n = numBottles % numExchange;
+        int ans = numBottles + m;
+        while ((m + n) / numExchange > 0) {
+            numBottles = (m + n);
+            m = numBottles / numExchange;
+            n = numBottles % numExchange;
+            ans += m;
+        }
+        return ans;
+    }
+
+
+
+
 }

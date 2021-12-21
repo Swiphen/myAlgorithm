@@ -6,7 +6,10 @@ public class MidMain {
 //        int[] a2 = {0,-2,-1,-7,-4};
 //        System.out.println(new MidSolution().maxAbsValExpr(a1, a2));
 
-        char[][] board = {{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}};
-        System.out.println(new MidSolution().countBattleships(board));
+//        char[][] board = {{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}};
+//        System.out.println(new MidSolution().countBattleships(board));
+        int[] houses = {1, 2, 3, 4};
+        int[] heaters = {1, 4};
+        System.out.println(new MidSolution().findRadius(houses, heaters));
     }
 }

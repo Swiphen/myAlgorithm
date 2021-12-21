@@ -1,6 +1,8 @@
 package com.feng;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MidSolution {
 
@@ -42,14 +44,49 @@ public class MidSolution {
         int ans = 0;
         int m = board.length;
         int n = board[0].length;
-        for (int i = 0; i < m; i++) {
+//        for (int i = 0; i < m; i++) {
+//            for (int j = 0; j < n; j++) {
+//                System.out.print(board[i][j]);
+//            }
+//            System.out.println();
+//        }
+        for (int i = m - 1; i >= 0; i--) {
             for (int j = 0; j < n; j++) {
                 System.out.print(board[i][j]);
+
             }
             System.out.println();
         }
 
+
         System.out.println();
         return ans;
+    }
+
+    /**
+     * 475. 供暖器
+     *
+     * @param houses
+     * @param heaters
+     * @return
+     */
+    public int findRadius(int[] houses, int[] heaters) {
+        int radius = 0;
+        int m = houses.length;
+        int n = heaters.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(heaters[i], map.getOrDefault(heaters[i], 0));
+            for (int j = 0; j < m; j++) {
+                if (houses[j] <= heaters[i]) {
+                    map.put(heaters[i], heaters[i] - houses[j]);
+                } else {
+                    continue;
+                }
+            }
+        }
+
+
+        return radius;
     }
 }

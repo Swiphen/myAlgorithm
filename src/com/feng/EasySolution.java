@@ -1,5 +1,7 @@
 package com.feng;
 
+import java.util.*;
+
 public class EasySolution {
 
     /**
@@ -182,6 +184,170 @@ public class EasySolution {
                     ans += Math.min(day, 30);
                 } else {
                     ans += 30;
+                }
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 面试题 08.06. 汉诺塔问题
+     *
+     * @param A
+     * @param B
+     * @param C
+     */
+    public void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
+
+
+    }
+
+    /**
+     * 剑指 Offer 06. 从尾到头打印链表
+     *
+     * @param head
+     * @return
+     */
+    public int[] reversePrint(ListNode_1 head) {
+        List<Integer> list = new ArrayList<>();
+        if (head == null) {
+            int[] arr = new int[0];
+            return arr;
+        }
+        while (head.next != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+        list.add(head.val);
+        int n = list.size();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = list.get(n - 1 - i);
+        }
+        return arr;
+    }
+
+    /**
+     * 2099. 找到和最大的长度为 K 的子序列
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int[] maxSubsequence(int[] nums, int k) {
+        int[] arr = new int[k];
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+            }
+        }
+
+        return nums;
+    }
+
+    /**
+     * 125. 验证回文串
+     *
+     * @param s
+     * @return
+     */
+    public boolean isPalindrome(String s) {
+        int n = s.length();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            char c = s.charAt(i);
+            if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')) {
+                sb.append(c);
+            }
+            if ((c >= 'A' && c <= 'Z')) {
+                c = (char) (c + 32);
+                sb.append(c);
+            }
+        }
+        String str = sb.toString();
+        int len = str.length();
+        for (int i = 0; i < len / 2; i++) {
+            if (str.charAt(i) != str.charAt(len - i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isPalindrome2(String s) {
+        int n = s.length();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            char c = s.charAt(i);
+            if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')) {
+                sb.append(c);
+            }
+            if ((c >= 'A' && c <= 'Z')) {
+                c = (char) (c + 32);
+                sb.append(c);
+            }
+        }
+        String str1 = sb.toString();
+        String str2 = sb.reverse().toString();
+        return str1.equals(str2);
+    }
+
+    /**
+     * 171. Excel 表列序号
+     *
+     * @param columnTitle
+     * @return
+     */
+    public int titleToNumber(String columnTitle) {
+        int ans = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < 26; i++) {
+            map.put((char) ('A' + i), i + 1);
+        }
+        int len = columnTitle.length();
+        int n = 1;
+        for (int j = len - 1; j >= 0; j--) {
+            ans += map.get(columnTitle.charAt(j)) * n;
+            n *= 26;
+        }
+        return ans;
+    }
+
+    public int titleToNumber2(String columnTitle) {
+        int num = 0;
+        int flag = 1;
+        int len = columnTitle.length() - 1;
+        for (int i = len; i >= 0; i--) {
+            int n = columnTitle.charAt(i) - 'A' + 1;
+            num += n * flag;
+            flag *= 26;
+        }
+        return num;
+    }
+
+    /**
+     * 1995. 统计特殊四元组
+     *
+     * @param nums
+     * @return
+     */
+    public int countQuadruplets(int[] nums) {
+        int ans = 0;
+        for (int i = 3; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[j] >= nums[i]) {
+                    continue;
+                }
+                for (int k = j + 1; k < i; k++) {
+                    if (nums[j] + nums[k] >= nums[i]) {
+                        continue;
+                    }
+                    for (int l = k + 1; l < i; l++) {
+                        if (nums[j] + nums[k] + nums[l] == nums[i]) {
+                            ans++;
+                        }
+                    }
                 }
             }
         }

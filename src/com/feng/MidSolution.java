@@ -1,8 +1,6 @@
 package com.feng;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MidSolution {
 
@@ -77,16 +75,79 @@ public class MidSolution {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             map.put(heaters[i], map.getOrDefault(heaters[i], 0));
-            for (int j = 0; j < m; j++) {
-                if (houses[j] <= heaters[i]) {
-                    map.put(heaters[i], heaters[i] - houses[j]);
-                } else {
-                    continue;
-                }
-            }
-        }
 
+        }
 
         return radius;
     }
+
+    /**
+     * 686. 重复叠加字符串匹配
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    public int repeatedStringMatch(String a, String b) {
+        int ans = 1;
+        int m = a.length();
+        int n = b.length();
+        StringBuilder sb = new StringBuilder();
+        sb.append(a);
+        while (m < n) {
+            sb.append(a);
+            ans++;
+            m = sb.length();
+        }
+        if (sb.toString().contains(b)) {
+            return ans;
+        }
+        sb.append(a);
+        ans++;
+        if (sb.toString().contains(b)) {
+            return ans;
+        }
+        return -1;
+    }
+
+
+    /**
+     * 1705. 吃苹果的最大数目
+     *
+     * @param apples
+     * @param days
+     * @return
+     */
+    public int eatenApples(int[] apples, int[] days) {
+        int ans = 0;
+
+
+        return ans;
+    }
+
+    /**
+     * 825. 适龄的朋友
+     *
+     * @param ages
+     * @return
+     */
+    public int numFriendRequests(int[] ages) {
+        int ans = 0;
+        Arrays.sort(ages);
+        for (int i = 0; i < ages.length; i++) {
+            for (int j = 0; j < ages.length; j++) {
+                if (i != j) {
+                    if (ages[i] > ages[j] || (ages[i] <= ages[j] * 0.5 + 7) ) {
+
+                    } else {
+                        ans++;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+
+
 }

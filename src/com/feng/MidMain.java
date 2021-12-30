@@ -8,8 +8,15 @@ public class MidMain {
 
 //        char[][] board = {{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}};
 //        System.out.println(new MidSolution().countBattleships(board));
-        int[] houses = {1, 2, 3, 4};
-        int[] heaters = {1, 4};
-        System.out.println(new MidSolution().findRadius(houses, heaters));
+//        int[] houses = {1, 5};
+//        int[] heaters = {2};
+//        System.out.println(new MidSolution().findRadius(houses, heaters));
+//        String a = "abcabcabcabc";
+//        String b = "abac";
+//        String a = "abcd";
+//        String b = "cdabcdab";
+//        System.out.println(new MidSolution().repeatedStringMatch(a, b));
+        int[] a = {73,106,39,6,26,15,30,100,71,35,46,112,6,60,110};
+        System.out.println(new MidSolution().numFriendRequests(a));
     }
 }

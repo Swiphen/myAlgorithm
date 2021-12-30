@@ -24,7 +24,7 @@ public class Main {
 //        System.out.println(new Solution().maxPower("tourist"));
 //        System.out.println(new Solution().maxPower("cc"));
 //        System.out.println(new Solution().maxPower("acc"));
-        int[] time = {-2, 5, 0, 2, -2};
+//        int[] time = {-2, 5, 0, 2, -2};
 //        System.out.println(new Solution().findRelativeRanks(time));
 //        System.out.println(new Solution().largestSumAfterKNegations2(time,3));
 //        System.out.println(new Solution().canConstruct("aa","ab"));
@@ -59,6 +59,17 @@ public class Main {
 //        System.out.println(new Solution().scheduleCourse(courses));
 //        String[] str = {"XOX", " X ", "   "};
 //        System.out.println(new Solution().validTicTacToe(str));
+
+        ListNode_2 l1 = new ListNode_2(2);
+        l1.next = new ListNode_2(4);
+        l1.next.next = new ListNode_2(3);
+
+        ListNode_2 l2 = new ListNode_2(5);
+        l2.next = new ListNode_2(6);
+        l2.next.next = new ListNode_2(4);
+        l2.next.next.next = new ListNode_2(3);
+
+        System.out.println(new Solution().addTwoNumbers(l1, l2));
 
     }
 }

@@ -449,9 +449,48 @@ public class Solution {
      */
     public ListNode_2 addTwoNumbers(ListNode_2 l1, ListNode_2 l2) {
         ListNode_2 res = new ListNode_2();
-        int n1 = 0, n2 = 0;
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        while (l1.next != null) {
+            sb1.append(l1.val);
+            l1 = l1.next;
+        }
+        sb1.append(l1.val);
 
-        System.out.println(n1);
+        while (l2.next != null) {
+            sb2.append(l2.val);
+            l2 = l2.next;
+        }
+        sb2.append(l2.val);
+
+        String s1 = sb1.reverse().toString();
+        String s2 = sb2.reverse().toString();
+
+        //
+        if (s1.length() > s2.length()) {
+            String temp = s1;
+            s1 = s2;
+            s2 = temp;
+        }
+        int m = s1.length();
+        int n = s2.length();
+//        for () {
+//
+//        }
+
+
+//        long a = Long.parseLong(sb1.reverse().toString());
+//        long b = Long.parseLong(sb2.reverse().toString());
+//        String s = String.valueOf(a + b);
+//        int len = s.length();
+//        res = l1;
+//        for (int i = len - 1; i > 0; i--) {
+//            l1.val = Integer.parseInt(String.valueOf(s.charAt(i)));
+//            l1.next = new ListNode_2();
+//            l1 = l1.next;
+//        }
+//        l1.val = Integer.parseInt(String.valueOf(s.charAt(0)));
+
         return res;
     }
 

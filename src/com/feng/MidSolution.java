@@ -137,7 +137,7 @@ public class MidSolution {
         for (int i = 0; i < ages.length; i++) {
             for (int j = 0; j < ages.length; j++) {
                 if (i != j) {
-                    if (ages[i] > ages[j] || (ages[i] <= ages[j] * 0.5 + 7) ) {
+                    if (ages[i] > ages[j] || (ages[i] <= ages[j] * 0.5 + 7)) {
 
                     } else {
                         ans++;
@@ -148,6 +148,42 @@ public class MidSolution {
         return ans;
     }
 
+    /**
+     * 846. 一手顺子
+     *
+     * @param hand
+     * @param groupSize
+     * @return
+     */
+    public boolean isNStraightHand(int[] hand, int groupSize) {
+        if (hand.length % groupSize != 0) {
+            return false;
+        }
+        int len = hand.length;
+        Map<Integer, Integer> maps = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            maps.put(hand[i], maps.getOrDefault(hand[i], 0) + 1);
+        }
+        int flag = len / groupSize;
+        Arrays.sort(hand);
+//        maps.put(hand[0], maps.get(hand[0]) - 1);
+        int n = 0;
+        for (int j = 0; j < flag; j++) {
+            n = 0;
+            for (Map.Entry<Integer, Integer> map : maps.entrySet()) {
+                if (n != groupSize) {
+                    if (map.getValue() > 0) {
+                        if (maps.containsKey(map.getKey() + 1)) {
+                            map.setValue(map.getValue() - 1);
+                            n++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
 
 
 }

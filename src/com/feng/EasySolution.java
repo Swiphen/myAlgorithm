@@ -354,5 +354,151 @@ public class EasySolution {
         return ans;
     }
 
+    /**
+     * 507. 完美数
+     *
+     * @param num
+     * @return
+     */
+    public boolean checkPerfectNumber(int num) {
+        int sum = 0;
+        for (int i = 1; i <= num / 2; i++) {
+            if (num % i == 0) {
+                sum += i;
+            }
+        }
+        return sum == num;
+    }
 
+    /**
+     * 2022. 将一维数组转变成二维数组
+     *
+     * @param original
+     * @param m
+     * @param n
+     * @return
+     */
+    public int[][] construct2DArray(int[] original, int m, int n) {
+
+        if (original.length != m * n) {
+            return new int[1][];
+        }
+        int[][] ans = new int[m][n];
+        int k = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                ans[i][j] = original[k];
+                k++;
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 1185. 一周中的第几天
+     *
+     * @param day
+     * @param month
+     * @param year
+     * @return
+     */
+    public String dayOfTheWeek(int day, int month, int year) {
+        String[] weekDays = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        int days = 0;
+        for (int i = 1971; i < year; i++) {
+            days += isLeap(i) ? 366 : 365;
+        }
+        days += getMonthDays(month, year);
+        days += day;
+        int week = (days + 4) % 7;
+        return weekDays[week];
+    }
+
+    public boolean isLeap(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+    }
+
+    public int getMonthDays(int month, int year) {
+        int days = 0;
+        for (int i = 1; i < month; i++) {
+            if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) {
+                days += 31;
+            }
+            if (i == 2) {
+                if (isLeap(year)) {
+                    days += 29;
+                } else {
+                    days += 28;
+                }
+            }
+            if (i == 4 || i == 6 || i == 9 || i == 11) {
+                days += 30;
+            }
+        }
+        return days;
+    }
+
+    /**
+     * 1576. 替换所有的问号
+     *
+     * @param s
+     * @return
+     */
+    public String modifyString(String s) {
+        if (s.length() == 1) {
+            if (s.charAt(0) == '?') {
+                return "a";
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        int len = s.length();
+        for (int i = 0; i < len; i++) {
+            if (s.charAt(i) == '?') {
+                if (i == 0) {
+                    if (s.charAt(i + 1) == '?') {
+                        sb.append('a');
+                    } else {
+                        int flag = 'a' < s.charAt(i + 1) ? 'a' : s.charAt(i + 1) + 1;
+                        sb.append((char) flag);
+                    }
+                } else if (i == len - 1) {
+                    sb.append((char) ('a' < sb.charAt(i - 1) ? 'a' : sb.charAt(i - 1) + 1));
+                } else {
+                    if (s.charAt(i + 1) == '?') {
+                        sb.append((char) ('a' < sb.charAt(i - 1) ? 'a' : sb.charAt(i - 1) + 1));
+                    } else {
+                        if (sb.charAt(i - 1) < s.charAt(i + 1)) {
+                            int flag = ('a' < sb.charAt(i - 1) ? 'a' : sb.charAt(i - 1) + 1);
+                            sb.append((char) (flag < s.charAt(i + 1) ? flag : s.charAt(i + 1) + 1));
+                        } else if (sb.charAt(i - 1) == s.charAt(i + 1)) {
+                            sb.append((char) ('a' < sb.charAt(i - 1) ? 'a' : sb.charAt(i - 1) + 1));
+                        } else {
+                            int flag = ('a' < s.charAt(i + 1) ? 'a' : s.charAt(i + 1) + 1);
+                            sb.append((char) (flag < sb.charAt(i - 1) ? flag : sb.charAt(i - 1) + 1));
+                        }
+                    }
+                }
+            } else {
+                sb.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
+    public String modifyString2(String s) {
+        int n = s.length();
+        char[] arr = s.toCharArray();
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == '?') {
+                for (int j = 0; j < 3; j++) {
+                    if ((i > 0 && arr[i - 1] == (char) ('a' + j)) || (i < n - 1 && arr[i + 1] == ('a' + j))) {
+                        continue;
+                    }
+                    arr[i] = (char) ('a' + j);
+                    break;
+                }
+            }
+        }
+        return new String(arr);
+    }
 }

@@ -24,7 +24,14 @@ public class EasyMain {
 //        System.out.println(new EasySolution().maxSubsequence(a, 2));
 //        System.out.println(new EasySolution().isPalindrome2("race a car"));
 //        System.out.println(new EasySolution().titleToNumber2("FXSHRXW"));
-        int[] a = {1,1,1,3,5};
-        System.out.println(new EasySolution().countQuadruplets(a));
+//        int[] a = {1,1,1,3,5};
+//        System.out.println(new EasySolution().countQuadruplets(a));
+
+//        System.out.println(new EasySolution().checkPerfectNumber(28));
+//        int[] original = {1,2};
+//        System.out.println(new EasySolution().construct2DArray(original, 1, 1));
+//        System.out.println(new EasySolution().dayOfTheWeek(31, 8, 2019));
+//        System.out.println(new EasySolution().dayOfTheWeek(31, 8, 2019));
+        System.out.println(new EasySolution().modifyString2("?????????????"));
     }
 }

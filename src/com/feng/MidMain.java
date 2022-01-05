@@ -16,7 +16,9 @@ public class MidMain {
 //        String a = "abcd";
 //        String b = "cdabcdab";
 //        System.out.println(new MidSolution().repeatedStringMatch(a, b));
-        int[] a = {73,106,39,6,26,15,30,100,71,35,46,112,6,60,110};
-        System.out.println(new MidSolution().numFriendRequests(a));
+//        int[] a = {73,106,39,6,26,15,30,100,71,35,46,112,6,60,110};
+//        System.out.println(new MidSolution().numFriendRequests(a));
+        int[] hand = {1,2,3,6,2,3,4,7,8};
+        System.out.println(new MidSolution().isNStraightHand(hand, 3));
     }
 }

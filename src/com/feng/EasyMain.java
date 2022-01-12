@@ -32,6 +32,8 @@ public class EasyMain {
 //        System.out.println(new EasySolution().construct2DArray(original, 1, 1));
 //        System.out.println(new EasySolution().dayOfTheWeek(31, 8, 2019));
 //        System.out.println(new EasySolution().dayOfTheWeek(31, 8, 2019));
-        System.out.println(new EasySolution().modifyString2("?????????????"));
+//        System.out.println(new EasySolution().modifyString2("?????????????"));
+//        System.out.println(new EasySolution().maxDepth("(1+(2*3)+((8)/4))+1"));
+        System.out.println(new EasySolution().findTheDifference("aa","aea"));
     }
 }

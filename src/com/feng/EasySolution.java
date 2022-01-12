@@ -191,7 +191,7 @@ public class EasySolution {
     }
 
     /**
-     * 面试题 08.06. 汉诺塔问题
+     * 面试题 08.06. 汉诺塔问题（未完成）
      *
      * @param A
      * @param B
@@ -228,7 +228,7 @@ public class EasySolution {
     }
 
     /**
-     * 2099. 找到和最大的长度为 K 的子序列
+     * 2099. 找到和最大的长度为 K 的子序列（未完成）
      *
      * @param nums
      * @param k
@@ -501,4 +501,76 @@ public class EasySolution {
         }
         return new String(arr);
     }
+
+    /**
+     * 1614. 括号的最大嵌套深度
+     *
+     * @param s
+     * @return
+     */
+    public int maxDepth(String s) {
+        int ans = 0;
+        int n = s.length();
+        int flag = 0;
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == '(') {
+                flag++;
+            } else if (s.charAt(i) == ')') {
+                flag--;
+            }
+            ans = Math.max(ans, flag);
+        }
+        return ans;
+    }
+
+    /**
+     * 389. 找不同
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    public char findTheDifference(String s, String t) {
+        if (s.length() == 0) {
+            return t.charAt(0);
+        }
+        int n = s.length();
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+        }
+        for (int j = 0; j < n + 1; j++) {
+            if (map.containsKey(t.charAt(j)) && map.get(t.charAt(j)) - 1 >= 0) {
+                map.put(t.charAt(j), map.get(t.charAt(j)) - 1);
+            } else {
+                return t.charAt(j);
+            }
+        }
+        return t.charAt(n);
+    }
+
+    public char findTheDifference2(String s, String t) {
+        int m = 0;
+        int n = 0;
+        for (char c : s.toCharArray()) {
+            n += c;
+        }
+        for (char c : t.toCharArray()) {
+            m += c;
+        }
+        return (char) (m - n);
+    }
+
+    public char findTheDifference3(String s, String t) {
+        int n = s.length();
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res += t.charAt(i);
+            res -= s.charAt(i);
+        }
+        res += s.charAt(n);
+        return (char) res;
+    }
+
+
 }

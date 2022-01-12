@@ -25,7 +25,7 @@ public class MidSolution {
         return max;
     }
 
-    //曼哈顿距离
+    //曼哈顿距离（未完成）
     public int maxAbsValExpr2(int[] arr1, int[] arr2) {
         int ans = 0;
 
@@ -33,7 +33,7 @@ public class MidSolution {
     }
 
     /**
-     * 419. 甲板上的战舰
+     * 419. 甲板上的战舰（未完成）
      *
      * @param board
      * @return
@@ -62,7 +62,7 @@ public class MidSolution {
     }
 
     /**
-     * 475. 供暖器
+     * 475. 供暖器（未完成）
      *
      * @param houses
      * @param heaters
@@ -112,7 +112,7 @@ public class MidSolution {
 
 
     /**
-     * 1705. 吃苹果的最大数目
+     * 1705. 吃苹果的最大数目（未完成）
      *
      * @param apples
      * @param days
@@ -126,7 +126,7 @@ public class MidSolution {
     }
 
     /**
-     * 825. 适龄的朋友
+     * 825. 适龄的朋友（未完成）
      *
      * @param ages
      * @return
@@ -149,7 +149,7 @@ public class MidSolution {
     }
 
     /**
-     * 846. 一手顺子
+     * 846. 一手顺子（未完成）
      *
      * @param hand
      * @param groupSize
@@ -185,5 +185,15 @@ public class MidSolution {
         return false;
     }
 
+    /**
+     * 306. 累加数（未完成）
+     *
+     * @param num
+     * @return
+     */
+    public boolean isAdditiveNumber(String num) {
+
+        return false;
+    }
 
 }

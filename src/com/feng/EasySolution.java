@@ -572,5 +572,48 @@ public class EasySolution {
         return (char) res;
     }
 
+    /**
+     * 747. 至少是其他数字两倍的最大数
+     *
+     * @param nums
+     * @return
+     */
+    public int dominantIndex(int[] nums) {
+        int res = 0, n = nums.length;
+        if (n == 1) {
+            return 0;
+        }
+        int[] arr = nums.clone();
+        Arrays.sort(arr);
+        int max = arr[n - 1];
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == max) {
+                res = i;
+            }
+        }
+        if (arr[n - 2] * 2 > max) {
+            return -1;
+        }
+        return res;
+    }
+
+    public int dominantIndex2(int[] nums) {
+        int n = nums.length;
+        if (n == 1) {
+            return 0;
+        }
+        int m1 = -1, m2 = -1, index = -1;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > m1) {
+                m2 = m1;
+                m1 = nums[i];
+                index = i;
+            } else if (nums[i] > m2) {
+                m2 = nums[i];
+            }
+        }
+        return m1 >= m2 * 2 ? index : -1;
+    }
+
 
 }

@@ -34,6 +34,8 @@ public class EasyMain {
 //        System.out.println(new EasySolution().dayOfTheWeek(31, 8, 2019));
 //        System.out.println(new EasySolution().modifyString2("?????????????"));
 //        System.out.println(new EasySolution().maxDepth("(1+(2*3)+((8)/4))+1"));
-        System.out.println(new EasySolution().findTheDifference("aa","aea"));
+//        System.out.println(new EasySolution().findTheDifference("aa","aea"));
+        int[] nums = {3, 6, 1, 0};
+        System.out.println(new EasySolution().dominantIndex2(nums));
     }
 }

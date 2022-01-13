@@ -196,4 +196,28 @@ public class MidSolution {
         return false;
     }
 
+    /**
+     * 334. 递增的三元子序列
+     *
+     * @param nums
+     * @return
+     */
+    public boolean increasingTriplet(int[] nums) {
+        if (nums.length < 3) {
+            return false;
+        }
+        int n = nums.length;
+        int first = nums[0], second = Integer.MAX_VALUE, num;
+        for (int i = 0; i < n; i++) {
+            num = nums[i];
+            if (num > second) {
+                return true;
+            } else if (num > first) {
+                second = num;
+            } else {
+                first = num;
+            }
+        }
+        return false;
+    }
 }

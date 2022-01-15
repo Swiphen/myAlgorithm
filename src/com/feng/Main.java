@@ -5,10 +5,7 @@ import com.feng.multithreading.Foo;
 import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
@@ -60,16 +57,27 @@ public class Main {
 //        String[] str = {"XOX", " X ", "   "};
 //        System.out.println(new Solution().validTicTacToe(str));
 
-        ListNode_2 l1 = new ListNode_2(2);
-        l1.next = new ListNode_2(4);
-        l1.next.next = new ListNode_2(3);
+//        ListNode_2 l1 = new ListNode_2(2);
+//        l1.next = new ListNode_2(4);
+//        l1.next.next = new ListNode_2(3);
+//
+//        ListNode_2 l2 = new ListNode_2(5);
+//        l2.next = new ListNode_2(6);
+//        l2.next.next = new ListNode_2(4);
+//        l2.next.next.next = new ListNode_2(3);
+//
+//        System.out.println(new Solution().addTwoNumbers(l1, l2));
 
-        ListNode_2 l2 = new ListNode_2(5);
-        l2.next = new ListNode_2(6);
-        l2.next.next = new ListNode_2(4);
-        l2.next.next.next = new ListNode_2(3);
 
-        System.out.println(new Solution().addTwoNumbers(l1, l2));
+        List<String> list = new ArrayList<>();
+        list.add("aaa");
+        list.add("bbb");
+        list.add("caca");
+        if (list.contains("ccc")){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
 
     }
 }

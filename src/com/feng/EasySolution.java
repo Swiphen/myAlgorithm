@@ -615,5 +615,27 @@ public class EasySolution {
         return m1 >= m2 * 2 ? index : -1;
     }
 
+    /**
+     * 1716. 计算力扣银行的钱
+     *
+     * @param n
+     * @return
+     */
+    public int totalMoney(int n) {
+        int sum = 0;
+        int a = n / 7;
+        int b = n % 7;
+        int i = 1;
+        for (; i <= a; i++) {
+            sum += ((i + 3) * 6 + (i + 3));
+        }
+        for (int j = 1; j <= b; j++) {
+            sum += i;
+            i++;
+        }
+        return sum;
+    }
+
+
 
 }

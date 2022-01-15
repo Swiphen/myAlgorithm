@@ -220,4 +220,17 @@ public class MidSolution {
         }
         return false;
     }
+
+    /**
+     * 373. 查找和最小的K对数字
+     *
+     * @param nums1
+     * @param nums2
+     * @param k
+     * @return
+     */
+    public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+        List<List<Integer>> list = new ArrayList<>();
+        return list;
+    }
 }

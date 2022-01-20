@@ -636,6 +636,55 @@ public class EasySolution {
         return sum;
     }
 
+    /**
+     * 219. 存在重复元素 II
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        int len = nums.length;
+//        if (len == 2) {
+//            if (nums[0] == nums[1]) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        }
+//        for (int i = 0; i < (len - 1); i++) {
+//            int len2 = (i + k + 1) < len ? (i + k + 1) : len - 1;
+//            for (int j = i + 1; j < len2; j++) {  //j - i <= k --> j = k + i   1-
+//                if (nums[i] == nums[j]) {
+//                    return true;
+//                }
+//            }
+//        }
+        if (len == 1 || k == 0) {
+            return false;
+        }
+        for (int i = 0; i < len - 1; i++) {
+            int len1 = (i + 1 + k) < len ? (i + 1 + k) : len;
+            for (int j = i + 1; j < len1; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 1399. 统计最大组的数目（未完成）
+     *
+     * @param n
+     * @return
+     */
+    public int countLargestGroup(int n) {
+
+
+        return 0;
+    }
 
 
 }

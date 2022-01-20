@@ -1,5 +1,8 @@
 package com.feng;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MidMain {
     public static void main(String[] args) {
 //        int[] a1 = {1,-2,-5,0,10};
@@ -20,7 +23,12 @@ public class MidMain {
 //        System.out.println(new MidSolution().numFriendRequests(a));
 //        int[] hand = {1,2,3,6,2,3,4,7,8};
 //        System.out.println(new MidSolution().isNStraightHand(hand, 3));
-        int[] nums = {2,1,5,0,4,6};
-        System.out.println(new MidSolution().increasingTriplet(nums));
+//        int[] nums = {2,1,5,0,4,6};
+//        System.out.println(new MidSolution().increasingTriplet(nums));
+        List<String> timePoints = new ArrayList<>();
+        timePoints.add("23:59");
+        timePoints.add("00:00");
+
+        System.out.println(new MidSolution().findMinDifference(timePoints));
     }
 }

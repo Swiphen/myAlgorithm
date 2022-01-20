@@ -37,6 +37,8 @@ public class EasyMain {
 //        System.out.println(new EasySolution().findTheDifference("aa","aea"));
 //        int[] nums = {3, 6, 1, 0};
 //        System.out.println(new EasySolution().dominantIndex2(nums));
-        System.out.println(new EasySolution().totalMoney(4));
+//        System.out.println(new EasySolution().totalMoney(4));
+        int[] nums = {1,2,3,4,5,6,7,8,9,9};
+        System.out.println(new EasySolution().containsNearbyDuplicate(nums, 3));
     }
 }

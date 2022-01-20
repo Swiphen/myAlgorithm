@@ -222,7 +222,7 @@ public class MidSolution {
     }
 
     /**
-     * 373. 查找和最小的K对数字
+     * 373. 查找和最小的K对数字（未完成）
      *
      * @param nums1
      * @param nums2
@@ -232,5 +232,27 @@ public class MidSolution {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> list = new ArrayList<>();
         return list;
+    }
+
+    /**
+     * 539. 最小时间差（未完成）
+     *
+     * @param timePoints
+     * @return
+     */
+    public int findMinDifference(List<String> timePoints) {
+
+
+        return 0;
+    }
+
+    /**
+     * 2029. 石子游戏 IX（未完成）
+     *
+     * @param stones
+     * @return
+     */
+    public boolean stoneGameIX(int[] stones) {
+        return false;
     }
 }

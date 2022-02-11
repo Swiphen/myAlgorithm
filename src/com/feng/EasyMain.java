@@ -38,7 +38,13 @@ public class EasyMain {
 //        int[] nums = {3, 6, 1, 0};
 //        System.out.println(new EasySolution().dominantIndex2(nums));
 //        System.out.println(new EasySolution().totalMoney(4));
-        int[] nums = {1,2,3,4,5,6,7,8,9,9};
-        System.out.println(new EasySolution().containsNearbyDuplicate(nums, 3));
+//        int[] nums = {1,2,3,4,5,6,7,8,9,9};
+//        System.out.println(new EasySolution().containsNearbyDuplicate(nums, 3));
+//        String[] list1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
+//        String[] list2 = {"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun","aaa"};
+//        System.out.println(new EasySolution().findRestaurant(list1, list2));
+//        System.out.println(new EasySolution().numberOfMatches(7));
+        int[] nums = {9,4,1,7};
+        System.out.println(new EasySolution().minimumDifference(nums, 2));
     }
 }

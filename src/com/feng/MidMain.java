@@ -25,10 +25,14 @@ public class MidMain {
 //        System.out.println(new MidSolution().isNStraightHand(hand, 3));
 //        int[] nums = {2,1,5,0,4,6};
 //        System.out.println(new MidSolution().increasingTriplet(nums));
-        List<String> timePoints = new ArrayList<>();
-        timePoints.add("23:59");
-        timePoints.add("00:00");
+//        List<String> timePoints = new ArrayList<>();
+//        timePoints.add("23:59");
+//        timePoints.add("00:00");
+//
+//        System.out.println(new MidSolution().findMinDifference(timePoints));
 
-        System.out.println(new MidSolution().findMinDifference(timePoints));
+
+        int[] stones = {1, 1, 7, 10, 8, 17, 10, 20, 2, 10};
+        System.out.println(new MidSolution().stoneGameIX(stones));
     }
 }

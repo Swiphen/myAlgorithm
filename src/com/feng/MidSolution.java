@@ -253,6 +253,53 @@ public class MidSolution {
      * @return
      */
     public boolean stoneGameIX(int[] stones) {
-        return false;
+        int sum = 0, flag = 0;      // flag：  Alice:奇数    Bob:偶数
+        List<Integer> arr = new ArrayList<>();
+        Arrays.sort(stones);
+        for (int i = 0; i < stones.length; i++) {
+            arr.add(stones[i]);
+        }
+//        List<Integer> list = myTurn(arr, sum);
+        List<Integer> list = new ArrayList<>();
+        list.add(0);
+        list.add(0);
+        while ((list.get(1) != -1) && (flag < stones.length)) {
+            list = myTurn(arr, sum);
+            int n = list.get(0);
+            sum += arr.get(n);
+            arr.remove(n);
+            flag++;
+        }
+        if (flag % 2 == 0) {
+            if (sum % 3 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
+
+    public List<Integer> myTurn(List<Integer> arr, int sum) {
+        List<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < arr.size(); i++) {
+            if ((sum + arr.get(i)) % 3 != 0) {
+                sum += arr.get(i);
+                list.add(i);
+                list.add(sum);
+                return list;
+            }
+        }
+        list.add(0);
+        list.add(-1);
+
+        return list;
+    }
+
+
+
+
+
 }

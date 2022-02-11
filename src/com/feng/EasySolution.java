@@ -686,5 +686,80 @@ public class EasySolution {
         return 0;
     }
 
+    /**
+     * 599. 两个列表的最小索引总和（未完成）
+     *
+     * @param list1
+     * @param list2
+     * @return
+     */
+    public String[] findRestaurant(String[] list1, String[] list2) {
+        List<String> list = new ArrayList<>();
+        List<String> ans = new ArrayList<>();
+        if (list1.length < list2.length) {
+            String[] temp = list2;
+            list2 = list1;
+            list1 = temp;
+        }
+        int m = list1.length;
+        int n = list2.length;
+        for (int i = 0; i < m; i++) {
+            list.add(list1[i]);
+        }
+        for (int j = 0; j < n; j++) {
+            if (list.contains(list2[j])) {
+                ans.add(list2[j]);
+            }
+        }
 
+        String[] str = ans.toArray(new String[ans.size()]);
+        return str;
+    }
+
+    /**
+     * 1332. 删除回文子序列
+     *
+     * @param s
+     * @return
+     */
+    public int removePalindromeSub(String s) {
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) != s.charAt(n - i - 1)) {
+                return 2;
+            }
+            return 1;
+        }
+        return 1;
+    }
+
+    /**
+     * 1688. 比赛中的配对次数（未完成）
+     *
+     * @param n
+     * @return
+     */
+    public int numberOfMatches(int n) {
+        return n - 1;
+    }
+
+    /**
+     * 1984. 学生分数的最小差值
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int minimumDifference(int[] nums, int k) {
+        Arrays.sort(nums);
+        int len = nums.length;
+        if (len == 1) {
+            return 0;
+        }
+        int min = Integer.MAX_VALUE;
+        for (int i = len; i >= k; i--) {
+            min = Math.min(min, nums[i - 1] - nums[i - k]);
+        }
+        return min;
+    }
 }

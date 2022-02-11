@@ -69,15 +69,16 @@ public class Main {
 //        System.out.println(new Solution().addTwoNumbers(l1, l2));
 
 
+//        List<String> list = new ArrayList<>();
+//        list.add("aaa");
+//        list.add("bbb");
+//        list.add("caca");
         List<String> list = new ArrayList<>();
-        list.add("aaa");
-        list.add("bbb");
-        list.add("caca");
-        if (list.contains("ccc")){
+        list.addAll(Arrays.asList(new String[]{"bmbh", "fawen", "shouwen", "yjzj", "qsbg", "hytz", "wjcy", "report"}));
+        if (list.contains("yjzj")){
             System.out.println("true");
         }else{
             System.out.println("false");
         }
-
     }
 }

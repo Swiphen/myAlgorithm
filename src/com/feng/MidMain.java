@@ -32,7 +32,13 @@ public class MidMain {
 //        System.out.println(new MidSolution().findMinDifference(timePoints));
 
 
-        int[] stones = {1, 1, 7, 10, 8, 17, 10, 20, 2, 10};
-        System.out.println(new MidSolution().stoneGameIX(stones));
+//        int[] stones = {1, 1, 7, 10, 8, 17, 10, 20, 2, 10};
+//        System.out.println(new MidSolution().stoneGameIX(stones));
+//        System.out.println(new MidSolution().simplifiedFractions(4));
+//        int[][] grid = {{0, 0, 0, 0, 0}, {1, 0, 1, 0, 0}, {0, 1, 1, 0, 0}, {0, 0, 0, 0, 0}};
+//        System.out.println(new MidSolution().numEnclaves(grid));
+//        int[] nums = {1, 1, 2};
+//        System.out.println(new MidSolution().singleNonDuplicate(nums));
+
     }
 }

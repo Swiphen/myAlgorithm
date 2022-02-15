@@ -298,8 +298,104 @@ public class MidSolution {
         return list;
     }
 
+    /**
+     * 1447. 最简分数
+     *
+     * @param n
+     * @return
+     */
+    public List<String> simplifiedFractions(int n) {
+        List<String> list = new ArrayList<>();
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j < i; j++) {
+                int gcd = gcd(j, i);
+                String str = j / gcd + "/" + i / gcd;
+                if (!list.contains(str)) {
+                    list.add(str);
+                }
+            }
+        }
+        return list;
+    }
+
+    //辗转法求最大公约数
+    public int gcd(int x, int y) {
+        int temp;
+        while (y != 0) {
+            temp = x % y;
+            x = y;
+            y = temp;
+        }
+        return x;
+    }
+
+    /**
+     * 1020. 飞地的数量（未完成）
+     *
+     * @param grid
+     * @return
+     */
+    public int numEnclaves(int[][] grid) {
+        int ans = 0;
+        int m = grid.length;
+        int n = grid[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(grid[i][j] + "  ");
+            }
+            System.out.println();
+        }
 
 
+        for (int i = 0; i < m; i++) {
+            boolean on = true;
+            boolean down = true;
+            boolean left = true;
+            boolean right = true;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    //上
+                    if ((i - 1 >= 0) && grid[i - 1][j] == 1) {
+                        on = false;
+                    }
+                    //下
+                    if ((i + 1 < n) && grid[i + 1][j] == 1) {
+                        down = false;
+                    }
+                    //左
+                    if ((j - 1 >= 0) && grid[i][j - 1] == 1) {
+                        left = false;
+                    }
+                    //右
+                    if ((j + 1 < m) && grid[i][j + 1] == 1) {
+                        right = false;
+                    }
 
+                }
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 540. 有序数组中的单一元素
+     *
+     * @param nums
+     * @return
+     */
+    public int singleNonDuplicate(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                i++;
+            } else {
+                return nums[i];
+            }
+        }
+        return nums[nums.length - 1];
+    }
 
 }

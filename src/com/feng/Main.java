@@ -73,12 +73,23 @@ public class Main {
 //        list.add("aaa");
 //        list.add("bbb");
 //        list.add("caca");
-        List<String> list = new ArrayList<>();
-        list.addAll(Arrays.asList(new String[]{"bmbh", "fawen", "shouwen", "yjzj", "qsbg", "hytz", "wjcy", "report"}));
-        if (list.contains("yjzj")){
-            System.out.println("true");
-        }else{
-            System.out.println("false");
-        }
+//        List<String> list = new ArrayList<>();
+//        list.addAll(Arrays.asList(new String[]{"bmbh", "fawen", "shouwen", "yjzj", "qsbg", "hytz", "wjcy", "report"}));
+//        if (list.contains("yjzj")) {
+//            System.out.println("true");
+//        } else {
+//            System.out.println("false");
+//        }
+
+//        String startDate = "2022-02-10";
+//        String endDate = "2022-02-10";
+//        String nowDate = "2022-02-10";
+//        System.out.println(startDate.compareTo(nowDate));
+//        System.out.println(endDate.compareTo(nowDate));
+//        if ((startDate.compareTo(nowDate) <= 0 && endDate.compareTo(nowDate) >= 0)) {
+//            System.out.println("true");
+//        } else {
+//            System.out.println("false");
+//        }
     }
 }

@@ -762,4 +762,52 @@ public class EasySolution {
         }
         return min;
     }
+
+    /**
+     * 1380. 矩阵中的幸运数
+     *
+     * @param matrix
+     * @return
+     */
+    public List<Integer> luckyNumbers(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+        int m = matrix[0].length;
+        int n = matrix.length;
+        int[][] min = new int[n][2]; //行
+
+        for (int i = 0; i < n; i++) {
+            int flag = matrix[i][0];
+            min[i][0] = flag;
+            min[i][1] = 0;
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] < flag) {
+                    flag = matrix[i][j];
+                    min[i][0] = flag;
+                    min[i][1] = j;
+                }
+//                System.out.print(matrix[i][j] + " ");
+            }
+//            System.out.println();
+        }
+
+        for (int i = 0; i < n; i++) {
+            int k = min[i][1];
+            for (int j = 0; j < n; j++) {
+                if (matrix[j][k] > min[i][0]) {
+                    break;
+                } else if ((j == n - 1) && (matrix[j][k] <= min[i][0])) {
+                    list.add(min[i][0]);
+                }
+            }
+        }
+
+//        for (int i = 0; i < m; i++) {
+//            for (int j = 0; j < n; j++) {
+//                System.out.print(matrix[j][i] + " ");
+//            }
+//            System.out.println();
+//        }
+
+        return list;
+    }
 }

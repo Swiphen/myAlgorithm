@@ -44,7 +44,9 @@ public class EasyMain {
 //        String[] list2 = {"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun","aaa"};
 //        System.out.println(new EasySolution().findRestaurant(list1, list2));
 //        System.out.println(new EasySolution().numberOfMatches(7));
-        int[] nums = {9,4,1,7};
-        System.out.println(new EasySolution().minimumDifference(nums, 2));
+//        int[] nums = {9,4,1,7};
+//        System.out.println(new EasySolution().minimumDifference(nums, 2));
+        int[][] nums = {{1}, {9}};
+        System.out.println(new EasySolution().luckyNumbers(nums));
     }
 }

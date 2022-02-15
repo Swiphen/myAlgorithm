@@ -810,4 +810,55 @@ public class EasySolution {
 
         return list;
     }
+
+    /**
+     * 1189. “气球” 的最大数量
+     *
+     * @param text
+     * @return
+     */
+    public int maxNumberOfBalloons(String text) {
+        int ans = Integer.MAX_VALUE;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < text.length(); i++) {
+            map.put(text.charAt(i), map.getOrDefault(text.charAt(i), 0) + 1);
+        }
+        if (map.getOrDefault('b', 0) > 0 && map.getOrDefault('a', 0) > 0 && map.getOrDefault('l', 0) > 1 && map.getOrDefault('o', 0) > 1 && map.getOrDefault('n', 0) > 0) {
+            ans = Math.min(ans, map.get('b'));
+            ans = Math.min(ans, map.get('a'));
+            ans = Math.min(ans, map.get('l') / 2);
+            ans = Math.min(ans, map.get('o') / 2);
+            ans = Math.min(ans, map.get('n'));
+        } else {
+            ans = 0;
+        }
+        return ans;
+    }
+
+    public int maxNumberOfBalloons1(String text) {
+        int[] arr = {0, 0, 0, 0, 0};
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == 'b') {
+                arr[0]++;
+            }
+            if (text.charAt(i) == 'a') {
+                arr[1]++;
+            }
+            if (text.charAt(i) == 'l') {
+                arr[2]++;
+            }
+            if (text.charAt(i) == 'o') {
+                arr[3]++;
+            }
+            if (text.charAt(i) == 'n') {
+                arr[4]++;
+            }
+        }
+        int ans = arr[0];
+        ans = Math.min(ans, arr[1]);
+        ans = Math.min(ans, arr[2] / 2);
+        ans = Math.min(ans, arr[3] / 2);
+        ans = Math.min(ans, arr[4]);
+        return ans;
+    }
 }

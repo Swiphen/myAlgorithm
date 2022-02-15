@@ -46,7 +46,8 @@ public class EasyMain {
 //        System.out.println(new EasySolution().numberOfMatches(7));
 //        int[] nums = {9,4,1,7};
 //        System.out.println(new EasySolution().minimumDifference(nums, 2));
-        int[][] nums = {{1}, {9}};
-        System.out.println(new EasySolution().luckyNumbers(nums));
+//        int[][] nums = {{1}, {9}};
+//        System.out.println(new EasySolution().luckyNumbers(nums));
+        System.out.println(new EasySolution().maxNumberOfBalloons("leetcode"));
     }
 }

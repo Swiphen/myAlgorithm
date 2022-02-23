@@ -398,4 +398,20 @@ public class MidSolution {
         return nums[nums.length - 1];
     }
 
+    /**
+     * 688. 骑士在棋盘上的概率（未完成）
+     *
+     * @param n
+     * @param k
+     * @param row
+     * @param column
+     * @return
+     */
+    public double knightProbability(int n, int k, int row, int column) {
+        double ans = 0;
+        
+
+        return ans;
+    }
+
 }

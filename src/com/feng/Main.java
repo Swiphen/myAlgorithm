@@ -1,6 +1,7 @@
 package com.feng;
 
 import com.feng.multithreading.Foo;
+import com.feng.sum_of_nums.SumOfNums;
 
 import java.lang.reflect.Array;
 import java.text.ParseException;
@@ -91,5 +92,22 @@ public class Main {
 //        } else {
 //            System.out.println("false");
 //        }
+
+//        System.out.println((double)4/(double)(8*8));
+//        float a = 1.5f;
+//        double b = a, c = 1.2;
+//        System.out.println((float) (b - c));
+//        String a = "2022-01-10";
+//        System.out.println(a.split("-")[0]);
+//        int[] nums = {-1};
+//        System.out.println(new SumOfNums().threeSum(nums));
+
+        String str = "#/dcontent/gwgl.shouwen.form_dwsw/";
+        String[] split1 = str.split("/");
+        String s1 = str.split("/")[2];
+        String[] split = s1.split(".form");
+        String s2 = s1.split(".form")[0];
+        s2.replace('.', '/');
+
     }
 }

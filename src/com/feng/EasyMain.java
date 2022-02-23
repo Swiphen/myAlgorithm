@@ -48,6 +48,14 @@ public class EasyMain {
 //        System.out.println(new EasySolution().minimumDifference(nums, 2));
 //        int[][] nums = {{1}, {9}};
 //        System.out.println(new EasySolution().luckyNumbers(nums));
-        System.out.println(new EasySolution().maxNumberOfBalloons("leetcode"));
+//        System.out.println(new EasySolution().maxNumberOfBalloons("leetcode"));
+//        int[] widths = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
+//        String s = "abcdefghijklmnopqrstuvwxyz";
+//        System.out.println(new EasySolution().numberOfLines(widths, s));
+//        int[] nums = {3, 2};
+//        System.out.println(new EasySolution().sortArrayByParity(nums));
+//        int[] nums = {1, 2, 3, 4, 4, 3, 2, 1};
+//        System.out.println(new EasySolution().hasGroupsSizeX(nums));
+        System.out.println(new EasySolution().reverseOnlyLetters("a-bC-dEf-ghIj"));
     }
 }

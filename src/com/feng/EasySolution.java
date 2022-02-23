@@ -861,4 +861,124 @@ public class EasySolution {
         ans = Math.min(ans, arr[4]);
         return ans;
     }
+
+    /**
+     * 806. 写字符串需要的行数
+     *
+     * @param widths
+     * @param s
+     * @return
+     */
+    public int[] numberOfLines(int[] widths, String s) {
+        int[] ans = {1, 0};
+        int sum = 0;
+        int len = widths.length;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            map.put((char) ('a' + i), widths[i]);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (sum + map.get(s.charAt(i)) <= 100) {
+                sum += map.get(s.charAt(i));
+
+            } else {
+                ans[0]++;
+                sum = map.get(s.charAt(i));
+            }
+            if (i == s.length() - 1) {
+                ans[1] = sum;
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 905. 按奇偶排序数组
+     *
+     * @param nums
+     * @return
+     */
+    public int[] sortArrayByParity(int[] nums) {
+        int len = nums.length;
+        if (len == 1) {
+            return nums;
+        }
+        for (int i = 0; i < len; i++) {
+            if (nums[i] % 2 == 0) {
+                int n = nums[i];
+                for (int j = i; j > 0; j--) {
+                    nums[j] = nums[j - 1];
+                }
+                nums[0] = n;
+            }
+        }
+
+        return nums;
+    }
+
+    public int[] sortArrayByParity1(int[] nums) {
+        int len = nums.length, n = 0;
+        int[] ans = new int[len];
+
+        for (int i = 0; i < len; i++) {
+            if (nums[i] % 2 == 0) {
+                ans[n++] = nums[i];
+            }
+        }
+        for (int i = 0; i < len; i++) {
+            if (nums[i] % 2 == 1) {
+                ans[n++] = nums[i];
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 914. 卡牌分组
+     *
+     * @param deck
+     * @return
+     */
+    public boolean hasGroupsSizeX(int[] deck) {
+
+        return false;
+    }
+
+    /**
+     * 1791. 找出星型图的中心节点
+     *
+     * @param edges
+     * @return
+     */
+    public int findCenter(int[][] edges) {
+
+        return ((edges[0][0] == edges[1][0]) || (edges[0][0] == edges[1][1])) ? edges[0][0] : edges[0][1];
+    }
+
+    /**
+     * 917. 仅仅反转字母（未完成）
+     *
+     * @param s
+     * @return
+     */
+    public String reverseOnlyLetters(String s) {
+        String s1 = s;
+        StringBuilder sb = new StringBuilder();
+        int len = s.length();
+        int j = len - 1;
+        for (int i = 0; i < len; i++) {
+            if ((s.charAt(i) >= 'a' && s.charAt(i) <= 'z') || (s.charAt(i) >= 'A' && s.charAt(i) <= 'Z')) {
+                for (; j >= 0; j--) {
+                    if ((s1.charAt(j) >= 'a' && s1.charAt(j) <= 'z') || (s1.charAt(j) >= 'A' && s1.charAt(j) <= 'Z')) {
+                        sb.append(s1.charAt(j));
+                        j--;
+                        break;
+                    }
+                }
+            } else {
+                sb.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
 }

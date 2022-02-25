@@ -409,9 +409,47 @@ public class MidSolution {
      */
     public double knightProbability(int n, int k, int row, int column) {
         double ans = 0;
-        
+
 
         return ans;
+    }
+
+    /**
+     * 537. 复数乘法
+     *
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public String complexNumberMultiply(String num1, String num2) {
+        int[] n1 = complexNum(num1);
+        int[] n2 = complexNum(num2);
+
+        return (n1[0] * n2[0] - n1[1] * n2[1]) + "+" + (n1[0] * n2[1] + n1[1] * n2[0]) + "i";
+    }
+
+    public int[] complexNum(String s) {
+        int a = 0, b = 0;
+        if (s.contains("+")) {
+            String[] str1 = s.split("\\+");
+            a = Integer.parseInt(str1[0]);
+            b = Integer.parseInt(str1[1].split("i")[0]);
+        } else if (s.contains("i")) {
+            b = Integer.parseInt(s.split("i")[0]);
+        } else {
+            a = Integer.parseInt(s);
+        }
+        return new int[]{a, b};
+    }
+
+    public String complexNumberMultiply2(String num1, String num2) {
+        String[] s1 = num1.split("\\+|i");
+        String[] s2 = num2.split("\\+|i");
+        int a = Integer.parseInt(s1[0]);
+        int b = Integer.parseInt(s1[1]);
+        int c = Integer.parseInt(s2[0]);
+        int d = Integer.parseInt(s2[1]);
+        return (a * c - b * d) + "+" + (a * d + b * c) + "i";
     }
 
 }

@@ -940,8 +940,27 @@ public class EasySolution {
      * @return
      */
     public boolean hasGroupsSizeX(int[] deck) {
+        int len = deck.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            map.put(deck[i], map.getOrDefault(deck[i], 0) + 1);
+        }
+        int n = -1;
+        for (int i = 1; i < len; i++) {
+            if (map.get(deck[i]) > 0) {
+                if (n == -1) {
+                    n = map.get(deck[i]);
+                } else {
+                    n = gcd(n, map.get(deck[i]));
+                }
+            }
+        }
+        return n >= 2;
+    }
 
-        return false;
+    //求公约数
+    public int gcd(int x, int y) {
+        return x == 0 ? y : gcd(y % x, x);
     }
 
     /**
@@ -956,7 +975,7 @@ public class EasySolution {
     }
 
     /**
-     * 917. 仅仅反转字母（未完成）
+     * 917. 仅仅反转字母
      *
      * @param s
      * @return

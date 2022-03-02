@@ -40,6 +40,8 @@ public class MidMain {
 //        int[] nums = {1, 1, 2};
 //        System.out.println(new MidSolution().singleNonDuplicate(nums));
 //        System.out.println(new MidSolution().knightProbability(3, 2, 0, 0));
-        System.out.println(new MidSolution().complexNumberMultiply2("1+-1i", "1+-1i"));
+//        System.out.println(new MidSolution().complexNumberMultiply2("1+-1i", "1+-1i"));
+
+        System.out.println(new MidSolution().convert("ABCDEF", 2));
     }
 }

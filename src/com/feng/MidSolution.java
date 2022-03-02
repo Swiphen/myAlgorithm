@@ -452,4 +452,68 @@ public class MidSolution {
         return (a * c - b * d) + "+" + (a * d + b * c) + "i";
     }
 
+    /**
+     * 6. Z 字形变换
+     *
+     * @param s
+     * @param numRows
+     * @return
+     */
+    public String convert(String s, int numRows) {
+        int n = s.length(), flag = 0, m = 1, a = 0;
+        String[][] arr = new String[numRows][n];
+        StringBuilder sb = new StringBuilder();
+        if (numRows == 1) {
+            return s;
+        }
+        if (numRows == 2) {
+            for (int i = 0; i < n; i += 2) {
+                sb.append(s.charAt(i));
+            }
+            for (int i = 1; i < n; i += 2) {
+                sb.append(s.charAt(i));
+            }
+            return sb.toString();
+        }
+        for (int j = 0; j < n; j++) {
+            for (int i = 0; i < numRows; i++) {
+                if ((m == numRows - 1)) {
+                    m = 1;
+                    a += numRows - 1;
+                }
+                if (flag < n) {
+                    if ((j == 0) || (j == a)) {
+                        arr[i][j] = s.charAt(flag) + "";
+                        flag++;
+                    } else {
+                        if (numRows - m - 1 < 0) {
+                            m = 0;
+                        }
+                        arr[numRows - m - 1][j] = s.charAt(flag) + "";
+                        m++;
+                        flag++;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr[i][j] != null) {
+                    System.out.print(arr[i][j] + " ");
+                } else {
+                    System.out.print("- ");
+                }
+                if (arr[i][j] != null) {
+                    sb.append(arr[i][j]);
+                }
+            }
+            System.out.println();
+        }
+
+        return sb.toString();
+    }
+
+
 }

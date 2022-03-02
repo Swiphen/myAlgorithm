@@ -1000,4 +1000,67 @@ public class EasySolution {
         }
         return sb.toString();
     }
+
+    /**
+     * 1160. 拼写单词（未完成）
+     *
+     * @param words
+     * @param chars
+     * @return
+     */
+    public int countCharacters(String[] words, String chars) {
+        int ans = 0;
+
+        return ans;
+    }
+
+    /**
+     * 1929. 数组串联
+     *
+     * @param nums
+     * @return
+     */
+    public int[] getConcatenation(int[] nums) {
+        int n = nums.length;
+        int j = 0;
+        int[] arr = new int[2 * n];
+        for (int i = 0; i < 2 * n; i++) {
+            if (i < n) {
+                arr[i] = nums[i];
+            } else {
+                arr[i] = nums[j];
+                j++;
+            }
+        }
+        return arr;
+    }
+
+    /**
+     * 1507. 转变日期格式
+     *
+     * @param date
+     * @return
+     */
+    public String reformatDate(String date) {
+        String[] months = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        String[] s = date.split(" ");
+        int n = 1;
+        for (String month : months) {
+            if (month.equals(s[1])) {
+                if (n <= 9) {
+                    s[1] = "0" + String.valueOf(n);
+                } else {
+                    s[1] = String.valueOf(n);
+                }
+            } else {
+                n++;
+            }
+        }
+        if (s[0].charAt(1) >= '0' && s[0].charAt(1) <= '9') {
+            s[0] = String.valueOf(s[0].charAt(0)) + String.valueOf(s[0].charAt(1));
+        } else {
+            s[0] = "0" + String.valueOf(s[0].charAt(0));
+        }
+        return s[2] + "-" + s[1] + "-" + s[0];
+    }
 }

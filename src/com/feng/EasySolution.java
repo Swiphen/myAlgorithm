@@ -1063,4 +1063,28 @@ public class EasySolution {
         }
         return s[2] + "-" + s[1] + "-" + s[0];
     }
+
+    /**
+     * 258. 各位相加
+     *
+     * @param num
+     * @return
+     */
+    public int addDigits(int num) {
+        int x = 0, ans = num;
+        while (ans > 9) {
+            x += num % 10;
+            num /= 10;
+            if (num == 0) {
+                num = x;
+                ans = x;
+                x = 0;
+            }
+        }
+        return ans;
+    }
+
+    public int addDigits2(int num) {
+        return (num - 1) % 9 + 1;
+    }
 }

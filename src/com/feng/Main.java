@@ -58,14 +58,14 @@ public class Main {
 //        String[] str = {"XOX", " X ", "   "};
 //        System.out.println(new Solution().validTicTacToe(str));
 
-//        ListNode_2 l1 = new ListNode_2(2);
-//        l1.next = new ListNode_2(4);
-//        l1.next.next = new ListNode_2(3);
+//        ListNode_2 l1 = new ListNode_2(3);
+//        l1.next = new ListNode_2(7);
+////        l1.next.next = new ListNode_2(3);
 //
-//        ListNode_2 l2 = new ListNode_2(5);
-//        l2.next = new ListNode_2(6);
-//        l2.next.next = new ListNode_2(4);
-//        l2.next.next.next = new ListNode_2(3);
+//        ListNode_2 l2 = new ListNode_2(9);
+//        l2.next = new ListNode_2(2);
+////        l2.next.next = new ListNode_2(4);
+////        l2.next.next.next = new ListNode_2(3);
 //
 //        System.out.println(new Solution().addTwoNumbers(l1, l2));
 
@@ -102,12 +102,12 @@ public class Main {
 //        int[] nums = {-1};
 //        System.out.println(new SumOfNums().threeSum(nums));
 
-        String str = "#/dcontent/gwgl.shouwen.form_dwsw/";
-        String[] split1 = str.split("/");
-        String s1 = str.split("/")[2];
-        String[] split = s1.split(".form");
-        String s2 = s1.split(".form")[0];
-        s2.replace('.', '/');
+//        String str = "#/dcontent/gwgl.shouwen.form_dwsw/";
+//        String[] split1 = str.split("/");
+//        String s1 = str.split("/")[2];
+//        String[] split = s1.split(".form");
+//        String s2 = s1.split(".form")[0];
+//        s2.replace('.', '/');
 
     }
 }

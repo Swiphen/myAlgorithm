@@ -42,6 +42,8 @@ public class MidMain {
 //        System.out.println(new MidSolution().knightProbability(3, 2, 0, 0));
 //        System.out.println(new MidSolution().complexNumberMultiply2("1+-1i", "1+-1i"));
 
-        System.out.println(new MidSolution().convert("ABCDEF", 2));
+//        System.out.println(new MidSolution().convert("ABCDEF", 2));
+        int[] nums = {4,-2,-3,4,1};
+        System.out.println(new MidSolution().subArrayRanges(nums));
     }
 }

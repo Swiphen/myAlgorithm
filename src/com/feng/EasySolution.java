@@ -1087,4 +1087,68 @@ public class EasySolution {
     public int addDigits2(int num) {
         return (num - 1) % 9 + 1;
     }
+
+    /**
+     * 521. 最长特殊序列 Ⅰ
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    public int findLUSlength(String a, String b) {
+        return !a.equals(b) ? Math.max(a.length(), b.length()) : -1;
+    }
+
+    /**
+     * 504. 七进制数
+     *
+     * @param num
+     * @return
+     */
+    public String convertToBase7(int num) {
+        if (num == 0) {
+            return "0";
+        }
+        String str = "";
+        if (num < 0) {
+            num = -num;
+        }
+        str = convert(num, str);
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        if (num < 0) {
+            sb.append("-");
+            str = sb.reverse().toString();
+        } else {
+            str = sb.reverse().toString();
+        }
+
+        return str;
+    }
+
+    public String convert(int num, String str) {
+        if (num == 0) {
+            return str;
+        }
+        str += (num % 7);
+        return convert(num / 7, str);
+    }
+
+    public String convertToBase7_2(int num) {
+        boolean flag = num < 0;
+        if (!flag) {
+            num = -num;
+        }
+        StringBuilder sb = new StringBuilder();
+        do {
+            sb.append(num % 7);
+            num /= 7;
+        } while (num != 0);
+        sb.reverse();
+        return flag ? sb.toString() : "-" + sb.toString();
+    }
+
+    public String convertToBase7_3(int num) {
+        return Integer.toString(num, 7);
+    }
 }

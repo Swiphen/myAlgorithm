@@ -1151,4 +1151,43 @@ public class EasySolution {
     public String convertToBase7_3(int num) {
         return Integer.toString(num, 7);
     }
+
+    /**
+     * 1544. 整理字符串
+     *
+     * @param s
+     * @return
+     */
+    public String makeGood(String s) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(s);
+        for (int i = 0; i < s.length() - 2; i++) {
+            if ((s.charAt(i) == (s.charAt(i + 1) + 32)) || (s.charAt(i) == (s.charAt(i + 1) - 32))) {
+                sb.delete(i, i + 2);
+                return makeGood(sb.toString());
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 1408. 数组中的字符串匹配
+     *
+     * @param words
+     * @return
+     */
+    public List<String> stringMatching(String[] words) {
+        List<String> list = new ArrayList<>();
+        int n = words.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (words[j].contains(words[i])) {
+                    list.add(words[i]);
+                    break;
+                }
+            }
+        }
+
+        return list;
+    }
 }

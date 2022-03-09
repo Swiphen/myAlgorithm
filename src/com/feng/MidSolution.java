@@ -536,4 +536,55 @@ public class MidSolution {
         return ans;
     }
 
+    /**
+     * 2055. 蜡烛之间的盘子（未完成）
+     *
+     * @param s
+     * @param queries
+     * @return
+     */
+    public int[] platesBetweenCandles(String s, int[][] queries) {
+
+
+        return null;
+    }
+
+    /**
+     * 2100. 适合打劫银行的日子（未完成）【超时】
+     *
+     * @param security
+     * @param time
+     * @return
+     */
+    public List<Integer> goodDaysToRobBank(int[] security, int time) {
+        List<Integer> list = new ArrayList<>();
+        int n = security.length;
+        int flag1, flag2;
+
+        for (int i = time; i <= n - time - 1; i++) {
+            flag1 = 1;
+            flag2 = 1;
+            //左边非递增
+            for (int j = i - time; j < i; j++) {
+                if (security[j] < security[j + 1]) {
+                    flag1 = 0;
+                    break;
+                }
+            }
+            //右边非递减
+            if (flag1 == 1) {
+                for (int k = i; k < i + time; k++) {
+                    if (security[k] > security[k + 1]) {
+                        flag2 = 0;
+                        break;
+                    }
+                }
+            }
+            if (flag1 == 1 && flag2 == 1) {
+                list.add(i);
+            }
+        }
+        return list;
+    }
+
 }

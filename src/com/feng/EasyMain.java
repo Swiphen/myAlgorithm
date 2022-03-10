@@ -63,6 +63,7 @@ public class EasyMain {
 //        System.out.println(new EasySolution().addDigits(100));
 //        System.out.println(new EasySolution().findLUSlength("aba","cdc"));
 //        System.out.println(new EasySolution().convertToBase7(4));
-        System.out.println(new EasySolution().makeGood("leEeetcode"));
+//        System.out.println(new EasySolution().makeGood("leEeetcode"));
+        System.out.println(new EasySolution().convertToTitle(701));
     }
 }

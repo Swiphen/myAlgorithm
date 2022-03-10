@@ -1,5 +1,7 @@
 package com.feng;
 
+import javafx.embed.swing.SwingFXUtils;
+
 import java.util.*;
 
 public class EasySolution {
@@ -1187,7 +1189,35 @@ public class EasySolution {
                 }
             }
         }
+        return list;
+    }
+
+    /**
+     * 589. N 叉树的前序遍历（未完成）
+     *
+     * @param root
+     * @return
+     */
+    public List<Integer> preorder(Node root) {
+        List<Integer> list = new ArrayList<>();
+
 
         return list;
+    }
+
+    /**
+     * 168. Excel表列名称【26进制转换】
+     *
+     * @param columnNumber
+     * @return
+     */
+    public String convertToTitle(int columnNumber) {
+        StringBuilder sb = new StringBuilder();
+        while (columnNumber > 0) {
+            columnNumber--;
+            sb.append((char) ('A' + columnNumber % 26));
+            columnNumber /= 26;
+        }
+        return sb.reverse().toString();
     }
 }

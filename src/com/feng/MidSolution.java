@@ -587,4 +587,46 @@ public class MidSolution {
         return list;
     }
 
+
+    /**
+     * 5. 最长回文子串（未完成）
+     *
+     * @param s
+     * @return
+     */
+    public String longestPalindrome(String s) {
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(s.charAt(i));
+            for (int j = i + 1; j < s.length(); j++) {
+                sb.append(s.charAt(j));
+                if (!"".equals(palindrome(sb.toString()))) {
+                    list.add(sb.toString());
+                }
+            }
+
+        }
+        if (list.size() > 0) {
+            String str = list.get(0);
+            for (int i = 1; i < list.size(); i++) {
+                str = str.length() > list.get(i).length() ? str : list.get(i);
+            }
+            return str;
+        }
+
+        return s;
+    }
+
+    public String palindrome(String s) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(s);
+        sb.reverse();
+        if (s.equals(sb.toString())) {
+            return s;
+        }
+        return "";
+    }
+
 }

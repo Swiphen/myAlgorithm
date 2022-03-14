@@ -108,6 +108,7 @@ public class Main {
 //        String[] split = s1.split(".form");
 //        String s2 = s1.split(".form")[0];
 //        s2.replace('.', '/');
+        
 
     }
 }

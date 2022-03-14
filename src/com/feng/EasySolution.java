@@ -689,33 +689,56 @@ public class EasySolution {
     }
 
     /**
-     * 599. 两个列表的最小索引总和（未完成）
+     * 599. 两个列表的最小索引总和
      *
      * @param list1
      * @param list2
      * @return
      */
     public String[] findRestaurant(String[] list1, String[] list2) {
+        Map<String, Integer> map = new HashMap<>();
+        int flag = Integer.MAX_VALUE;
         List<String> list = new ArrayList<>();
-        List<String> ans = new ArrayList<>();
-        if (list1.length < list2.length) {
-            String[] temp = list2;
-            list2 = list1;
-            list1 = temp;
+        for (int i = 0; i < list1.length; i++) {
+            map.put(list1[i], i);
         }
-        int m = list1.length;
-        int n = list2.length;
-        for (int i = 0; i < m; i++) {
-            list.add(list1[i]);
-        }
-        for (int j = 0; j < n; j++) {
-            if (list.contains(list2[j])) {
-                ans.add(list2[j]);
+        for (int j = 0; j < list2.length; j++) {
+            if (map.containsKey(list2[j])) {
+                map.put(list2[j], map.get(list2[j]) + j);
+                flag = Math.min(flag, map.get(list2[j]));
             }
         }
-
-        String[] str = ans.toArray(new String[ans.size()]);
+        for (int i = 0; i < list2.length; i++) {
+            if (map.containsKey(list2[i]) && map.get(list2[i]) == flag) {
+                list.add(list2[i]);
+            }
+        }
+        String[] str = new String[list.size()];
+        for (int j = 0; j < list.size(); j++) {
+            str[j] = list.get(j);
+        }
         return str;
+    }
+
+    public String[] findRestaurant2(String[] list1, String[] list2) {
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < list1.length; i++) {
+            map.put(list1[i], i);
+        }
+        List<String> list = new ArrayList<>();
+        int flag = Integer.MAX_VALUE;
+        for (int j = 0; j < list2.length; j++) {
+            if (map.containsKey(list2[j])) {
+                if (map.get(list2[j]) + j < flag) {
+                    list.clear();
+                    list.add(list2[j]);
+                    flag = map.get(list2[j]) + j;
+                } else if (map.get(list2[j]) + j == flag) {
+                    list.add(list2[j]);
+                }
+            }
+        }
+        return list.toArray(new String[list.size()]);
     }
 
     /**

@@ -1243,4 +1243,49 @@ public class EasySolution {
         }
         return sb.reverse().toString();
     }
+
+    /**
+     * 1374. 生成每种字符都是奇数个的字符串
+     *
+     * @param n
+     * @return
+     */
+    public String generateTheString(int n) {
+        StringBuilder sb = new StringBuilder();
+        if (n % 2 == 0) {
+            for (int i = 0; i < n - 1; i++) {
+                sb.append("a");
+            }
+            sb.append("b");
+        } else {
+            for (int i = 0; i < n; i++) {
+                sb.append("a");
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 1365. 有多少小于当前数字的数字
+     *
+     * @param nums
+     * @return
+     */
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int len = nums.length;
+        int[] ans = new int[len];
+        for (int i = 0; i < len; i++) {
+            ans[i] = 0;
+        }
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                if (j != i && nums[j] < nums[i]) {
+                    ans[i]++;
+                }
+            }
+        }
+        return ans;
+    }
+
+
 }

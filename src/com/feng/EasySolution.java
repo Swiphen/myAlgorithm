@@ -1287,5 +1287,39 @@ public class EasySolution {
         return ans;
     }
 
+    /**
+     * 771. 宝石与石头
+     *
+     * @param jewels
+     * @param stones
+     * @return
+     */
+    public int numJewelsInStones(String jewels, String stones) {
+        int ans = 0;
+        for (int i = 0; i < stones.length(); i++) {
+            for (int j = 0; j < jewels.length(); j++) {
+                if (stones.charAt(i) == jewels.charAt(j)) {
+                    ans++;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+
+    public int numJewelsInStones2(String jewels, String stones) {
+        int ans = 0;
+        int n = stones.length();
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < jewels.length(); i++) {
+            set.add(jewels.charAt(i));
+        }
+        for (int i = 0; i < n; i++) {
+            if (set.contains(stones.charAt(i))) {
+                ans++;
+            }
+        }
+        return ans;
+    }
 
 }

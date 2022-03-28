@@ -1322,4 +1322,105 @@ public class EasySolution {
         return ans;
     }
 
+    /**
+     * 720. 词典中最长的单词（未完成）
+     *
+     * @param words
+     * @return
+     */
+    public String longestWord(String[] words) {
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < words.length; i++) {
+
+        }
+        return "";
+    }
+
+    /**
+     * 661. 图片平滑器（未完成）
+     *
+     * @param img
+     * @return
+     */
+    public int[][] imageSmoother(int[][] img) {
+        int m = img[0].length;
+        int n = img.length;
+        int[][] arr = new int[n][m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int sum = img[j][i], num = 1;
+                //上
+                if (i - 1 >= 0 && i - 1 < m) {
+                    sum += img[j][i - 1];
+                    num++;
+                    if (j - 1 >= 0 && j - 1 <= n) {
+                        sum += img[j - 1][i - 1];
+                        num++;
+                    }
+                    if (j + 1 < n) {
+                        sum += img[j + 1][i - 1];
+                        num++;
+                    }
+                }
+                //下
+                if (i + 1 < m) {
+                    sum += img[j][i + 1];
+                    num++;
+                    if (j - 1 >= 0 && j - 1 < n) {
+                        sum += img[j - 1][i + 1];
+                        num++;
+                    }
+                    if (j + 1 < n) {
+                        sum += img[j + 1][i + 1];
+                        num++;
+                    }
+                }
+                //左
+                if (j - 1 >= 0 && j - 1 < n) {
+                    sum += img[j - 1][i];
+                    num++;
+                }
+
+                //右
+                if (j + 1 < n) {
+                    sum += img[j + 1][i];
+                    num++;
+                }
+                arr[j][i] = (int) Math.floor(sum / num);
+            }
+        }
+        return arr;
+    }
+
+    /**
+     * 682. 棒球比赛
+     *
+     * @param ops
+     * @return
+     */
+    public int calPoints(String[] ops) {
+        int ans = 0, j = 0;
+        int n = ops.length;
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if ("+".equals(ops[i])) {
+                list.add(list.get(j - 1) + list.get(j - 2));
+                j++;
+            } else if ("C".equals(ops[i])) {
+                list.remove(j - 1);
+                j--;
+            } else if ("D".equals(ops[i])) {
+                list.add(list.get(j - 1) * 2);
+                j++;
+            } else {
+                list.add(Integer.parseInt(ops[i]));
+                j++;
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            ans += list.get(i);
+        }
+        return ans;
+    }
+
 }

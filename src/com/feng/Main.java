@@ -108,7 +108,22 @@ public class Main {
 //        String[] split = s1.split(".form");
 //        String s2 = s1.split(".form")[0];
 //        s2.replace('.', '/');
-        
+//        Map<Integer, Integer> maps = new HashMap<>();
+//        maps.put(1, 1);
+//        maps.put(2, 2);
+//        maps.put(3, 3);
+//        maps.put(4, 4);
+//        for (Map.Entry<Integer, Integer> map : maps.entrySet()) {
+//            System.out.print("key:" + map.getKey() + "  value:" + map.getValue());
+//            System.out.println();
+//        }
+//
+//        for (Integer key : maps.keySet()) {
+//            System.out.println("key:" + key);
+//        }
+//        for (Integer value : maps.values()) {
+//            System.out.println("value:" + value);
+//        }
 
     }
 }

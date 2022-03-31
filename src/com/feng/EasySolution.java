@@ -1423,4 +1423,55 @@ public class EasySolution {
         return ans;
     }
 
+    /**
+     * 693. 交替位二进制数
+     *
+     * @param n
+     * @return
+     */
+    public boolean hasAlternatingBits(int n) {
+        StringBuilder sb = new StringBuilder();
+        while (n != 0) {
+            sb.append(n % 2);
+            n /= 2;
+        }
+        String str = sb.toString();
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 728. 自除数
+     *
+     * @param left
+     * @param right
+     * @return
+     */
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = left; i <= right; i++) {
+            boolean flag = isTrue(i);
+            if (flag) {
+                list.add(i);
+            }
+        }
+        return list;
+    }
+
+    public boolean isTrue(int n) {
+        int temp = n;
+        while (n > 0) {
+            int num = n % 10;
+            if (num == 0 || temp % num != 0) {
+                return false;
+            }
+            n /= 10;
+        }
+        return true;
+    }
+
 }

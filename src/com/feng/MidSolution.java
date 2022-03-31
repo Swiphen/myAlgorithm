@@ -629,4 +629,44 @@ public class MidSolution {
         return "";
     }
 
+    /**
+     * 2024. 考试的最大困扰度（未完成）
+     *
+     * @param answerKey
+     * @param k
+     * @return
+     */
+    public int maxConsecutiveAnswers(String answerKey, int k) {
+        int len = answerKey.length();
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        int t = 0, f = 0;
+
+        return 0;
+    }
+
+    /**
+     * 172. 阶乘后的零（未完成）
+     *
+     * @param n
+     * @return
+     */
+    public int trailingZeroes(int n) {
+        int num = 0;
+        long sum = 1;
+        while (n > 0) {
+            sum *= n;
+            n--;
+        }
+        String str = String.valueOf(sum);
+        for (int i = str.length() - 1; i > 0; i--) {
+            if (str.charAt(i) == '0') {
+                num++;
+            } else {
+                return num;
+            }
+        }
+        return num;
+    }
+
 }

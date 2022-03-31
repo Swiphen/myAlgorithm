@@ -45,7 +45,10 @@ public class MidMain {
 //        System.out.println(new MidSolution().convert("ABCDEF", 2));
 //        int[] nums = {4,-2,-3,4,1};
 //        System.out.println(new MidSolution().subArrayRanges(nums));
-        int[] security = {5, 3, 3, 3, 5, 6, 2};
-        System.out.println(new MidSolution().goodDaysToRobBank(security, 2));
+//        int[] security = {5, 3, 3, 3, 5, 6, 2};
+//        System.out.println(new MidSolution().goodDaysToRobBank(security, 2));
+//        String arr = "TTFTTFTT";
+//        System.out.println(new MidSolution().maxConsecutiveAnswers(arr, 1));
+        System.out.println(new MidSolution().trailingZeroes(30));
     }
 }

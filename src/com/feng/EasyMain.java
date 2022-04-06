@@ -67,6 +67,7 @@ public class EasyMain {
 //        System.out.println(new EasySolution().convertToTitle(701));
 //        int[][] img = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
 //        System.out.println(new EasySolution().imageSmoother(img));
-        System.out.println(new EasySolution().hasAlternatingBits(30));
+//        System.out.println(new EasySolution().hasAlternatingBits(30));
+        System.out.println(new EasySolution().countPrimeSetBits(10, 15));
     }
 }

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/binary_search/binary_search.iml" filepath="$PROJECT_DIR$/binary_search/binary_search.iml" />
       <module fileurl="file://$PROJECT_DIR$/dynamic/dynamic.iml" filepath="$PROJECT_DIR$/dynamic/dynamic.iml" />
       <module fileurl="file://$PROJECT_DIR$/myAlgorithm.iml" filepath="$PROJECT_DIR$/myAlgorithm.iml" />
     </modules>

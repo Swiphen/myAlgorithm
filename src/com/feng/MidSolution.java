@@ -669,4 +669,27 @@ public class MidSolution {
         return num;
     }
 
+    /**
+     * 954. 二倍数对数组（未完成）
+     *
+     * @param arr
+     * @return
+     */
+    public boolean canReorderDoubled(int[] arr) {
+        Arrays.sort(arr);
+        int len = arr.length;
+        int[] num1 = new int[len / 2];
+        int[] num2 = new int[len / 2];
+        for (int i = 0; i < len / 2; i++) {
+            num1[i] = arr[i];
+        }
+        for (int j = 0; j < len / 2; j++) {
+            num2[j] = arr[len / 2 + j];
+        }
+        for (int k = 0; k < len / 2; k++) {
+
+        }
+        return false;
+    }
+
 }

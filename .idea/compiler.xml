@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="binary_search" />
         <module name="dynamic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="binary_search" target="1.5" />
       <module name="dynamic" target="1.5" />
     </bytecodeTargetLevel>
   </component>

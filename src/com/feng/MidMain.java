@@ -49,6 +49,8 @@ public class MidMain {
 //        System.out.println(new MidSolution().goodDaysToRobBank(security, 2));
 //        String arr = "TTFTTFTT";
 //        System.out.println(new MidSolution().maxConsecutiveAnswers(arr, 1));
-        System.out.println(new MidSolution().trailingZeroes(30));
+//        System.out.println(new MidSolution().trailingZeroes(30));
+        int[] num = {3, 1, 3, 6};
+        System.out.println(new MidSolution().canReorderDoubled(num));
     }
 }

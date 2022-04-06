@@ -1474,4 +1474,51 @@ public class EasySolution {
         return true;
     }
 
+    /**
+     * 762. 二进制表示中质数个计算置位
+     *
+     * @param left
+     * @param right
+     * @return
+     */
+    public int countPrimeSetBits(int left, int right) {
+        int ans = 0;
+        for (int i = left; i <= right; i++) {
+            int num = toBinary(i);
+            boolean flag = isPrimeNum(num);
+            if (flag) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    public int toBinary(int n) {
+        int sum = 0;
+        StringBuilder sb = new StringBuilder();
+        while (n > 0) {
+            sb.append(n % 2);
+            n /= 2;
+        }
+        String str = sb.toString();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '1') {
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public boolean isPrimeNum(int n) {
+        if (n == 0 || n == 1) {
+            return false;
+        }
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

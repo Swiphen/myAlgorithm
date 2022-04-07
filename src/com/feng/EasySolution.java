@@ -1521,4 +1521,34 @@ public class EasySolution {
         return true;
     }
 
+
+    /**
+     * 796. 旋转字符串（未完成）
+     *
+     * @param s
+     * @param goal
+     * @return
+     */
+    public boolean rotateString(String s, String goal) {
+        int a = s.length();
+        int b = goal.length();
+        if (a != b) {
+            return false;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(s);
+        if (s.equals(goal)) {
+            return true;
+        }
+        for (int i = 0; i < b; i++) {
+            char c = sb.charAt(0);
+            sb.delete(0, 1);
+            sb.append(c);
+            if (sb.toString().equals(goal)) {
+                return true;
+            }
+
+        }
+        return false;
+    }
 }

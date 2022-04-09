@@ -1523,7 +1523,7 @@ public class EasySolution {
 
 
     /**
-     * 796. 旋转字符串（未完成）
+     * 796. 旋转字符串
      *
      * @param s
      * @param goal
@@ -1550,5 +1550,9 @@ public class EasySolution {
 
         }
         return false;
+    }
+
+    public boolean rotateString1(String s, String goal) {
+        return s.length() == goal.length() && (s + s).contains(goal);
     }
 }

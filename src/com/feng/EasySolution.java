@@ -1555,4 +1555,28 @@ public class EasySolution {
     public boolean rotateString1(String s, String goal) {
         return s.length() == goal.length() && (s + s).contains(goal);
     }
+
+    /**
+     * 804. 唯一摩尔斯密码词
+     *
+     * @param words
+     * @return
+     */
+    public int uniqueMorseRepresentations(String[] words) {
+        int ans = 0;
+        String[] mos = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-",
+                ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < words.length; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < words[i].length(); j++) {
+                sb.append(mos[words[i].charAt(j) - 'a']);
+            }
+            if (!set.contains(sb.toString())) {
+                set.add(sb.toString());
+                ans++;
+            }
+        }
+        return ans;
+    }
 }

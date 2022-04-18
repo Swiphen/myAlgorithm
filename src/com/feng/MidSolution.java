@@ -692,4 +692,18 @@ public class MidSolution {
         return false;
     }
 
+    /**
+     * 357. 统计各位数字都不同的数字个数（未完成）
+     *
+     * @param n
+     * @return
+     */
+    public int countNumbersWithUniqueDigits(int n) {
+        int num = 0;
+
+
+
+        return num;
+    }
+
 }

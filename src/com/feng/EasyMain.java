@@ -51,7 +51,7 @@ public class EasyMain {
 //        System.out.println(new EasySolution().maxNumberOfBalloons("leetcode"));
 //        int[] widths = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
 //        String s = "abcdefghijklmnopqrstuvwxyz";
-//        System.out.println(new EasySolution().numberOfLines(widths, s));
+//        System.out.println(new EasySolution().numberOfLines2(widths, s));
 //        int[] nums = {3, 2};
 //        System.out.println(new EasySolution().sortArrayByParity(nums));
 //        int[] nums = {1, 2, 3, 4, 4, 3, 2, 1};
@@ -70,7 +70,10 @@ public class EasyMain {
 //        System.out.println(new EasySolution().hasAlternatingBits(30));
 //        System.out.println(new EasySolution().countPrimeSetBits(10, 15));
 //        System.out.println(new EasySolution().rotateString("abcde","cdeab"));
-        String[] words = {"gin", "zen", "gig", "msg"};
-        System.out.println(new EasySolution().uniqueMorseRepresentations(words));
+//        String[] words = {"gin", "zen", "gig", "msg"};
+//        System.out.println(new EasySolution().uniqueMorseRepresentations(words));
+        String[] banned = {"a"};
+        String str = "a, a, a, a, b,b,b,c, c";
+        System.out.println(new EasySolution().mostCommonWord(str, banned));
     }
 }

@@ -917,6 +917,35 @@ public class EasySolution {
         return ans;
     }
 
+    public int[] numberOfLines2(int[] widths, String s) {
+        int[] arr = {1, 0};
+        int sum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (sum + widths[s.charAt(i) - 'a'] <= 100) {
+                sum += widths[s.charAt(i) - 'a'];
+            } else {
+                arr[0] += 1;
+                sum = widths[s.charAt(i) - 'a'];
+            }
+        }
+        arr[1] = sum;
+        return arr;
+    }
+
+    public int[] numberOfLines3(int[] widths, String s) {
+        int len = 1;
+        int sum = 0;
+        for (char c : s.toCharArray()) {
+            int n = widths[c - 'a'];
+            sum += n;
+            if (sum > 100) {
+                len++;
+                sum = n;
+            }
+        }
+        return new int[]{len, sum};
+    }
+
     /**
      * 905. 按奇偶排序数组
      *
@@ -1579,4 +1608,51 @@ public class EasySolution {
         }
         return ans;
     }
+
+    /**
+     * 819. 最常见的单词
+     *
+     * @param paragraph
+     * @param banned
+     * @return
+     */
+    public String mostCommonWord(String paragraph, String[] banned) {
+//        paragraph = paragraph.replace(",", "");
+        paragraph = paragraph.replace(".", "");
+        paragraph = paragraph.replace("!", "");
+        paragraph = paragraph.replace("?", "");
+        paragraph = paragraph.replace("'", "");
+        paragraph = paragraph.replace(";", "");
+        paragraph = paragraph.toLowerCase();
+        Set<String> set = new HashSet<>();
+        for (int j = 0; j < banned.length; j++) {
+            set.add(banned[j]);
+        }
+        Map<String, Integer> map = new HashMap<>();
+        int num = 0;
+        int len = paragraph.length();
+        String str = "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < len; i++) {
+            if (paragraph.charAt(i) != ' ' && paragraph.charAt(i) != ',') {
+                sb.append(paragraph.charAt(i));
+            } else {
+                if (!set.contains(sb.toString()) && !sb.toString().equals("")) {
+                    map.put(sb.toString(), map.getOrDefault(sb.toString(), 0) + 1);
+                    if (map.get(sb.toString()) > num) {
+                        num = map.get(sb.toString());
+                        str = sb.toString();
+                    }
+                }
+                sb = new StringBuilder();
+            }
+        }
+        if (map.size() == 0) {
+            return sb.toString();
+        }
+
+        return str;
+    }
+
+
 }

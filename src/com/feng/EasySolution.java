@@ -1654,5 +1654,76 @@ public class EasySolution {
         return str;
     }
 
+    /**
+     * 821. 字符的最短距离
+     *
+     * @param s
+     * @param c
+     * @return
+     */
+    public int[] shortestToChar(String s, char c) {
+        int len = s.length();
+        int[] answer = new int[len];
+        int flag = -len;
+        for (int i = 0; i < len; i++) {
+            if (s.charAt(i) == c) {
+                flag = i;
+            }
+            answer[i] = i - flag;
+        }
+        flag = 2 * len;
+        for (int j = len - 1; j >= 0; j--) {
+            if (s.charAt(j) == c) {
+                flag = j;
+            }
+            answer[j] = Math.min(answer[j], flag - j);
+        }
+        return answer;
+    }
+
+    /**
+     * 824. 山羊拉丁文
+     *
+     * @param sentence
+     * @return
+     */
+    public String toGoatLatin(String sentence) {
+        StringBuilder sb = new StringBuilder();
+        String[] s = sentence.split(" ");
+        Set<Character> set = new HashSet<>();
+        set.add('a');
+        set.add('e');
+        set.add('i');
+        set.add('o');
+        set.add('u');
+        set.add('A');
+        set.add('E');
+        set.add('I');
+        set.add('O');
+        set.add('U');
+
+        for (int i = 0; i < s.length; i++) {
+            StringBuilder sb1 = new StringBuilder();
+            if (set.contains(s[i].charAt(0))) {
+                sb1.append(s[i] + "m");
+
+            } else {
+                char c = s[i].charAt(0);
+                sb1.append(s[i]);
+                sb1.deleteCharAt(0);
+                sb1.append(c + "m");
+            }
+            for (int j = 0; j <= i + 1; j++) {
+                sb1.append("a");
+            }
+            if (i == s.length - 1) {
+                sb.append(sb1);
+            } else {
+                sb.append(sb1 + " ");
+            }
+        }
+
+        return sb.toString();
+    }
 
 }

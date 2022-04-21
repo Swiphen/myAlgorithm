@@ -125,5 +125,8 @@ public class Main {
 //            System.out.println("value:" + value);
 //        }
 
+        String str = "hello-world-java-test";
+        String[] split = str.split("-", 2);
+        System.out.println("");
     }
 }

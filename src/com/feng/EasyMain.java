@@ -72,8 +72,10 @@ public class EasyMain {
 //        System.out.println(new EasySolution().rotateString("abcde","cdeab"));
 //        String[] words = {"gin", "zen", "gig", "msg"};
 //        System.out.println(new EasySolution().uniqueMorseRepresentations(words));
-        String[] banned = {"a"};
-        String str = "a, a, a, a, b,b,b,c, c";
-        System.out.println(new EasySolution().mostCommonWord(str, banned));
+//        String[] banned = {"a"};
+//        String str = "a, a, a, a, b,b,b,c, c";
+//        System.out.println(new EasySolution().mostCommonWord(str, banned));
+//        System.out.println(new EasySolution().toGoatLatin("The quick brown fox jumped over the lazy dog"));
+        System.out.println(new EasySolution().shortestToChar("loveleetcode", 'e'));
     }
 }

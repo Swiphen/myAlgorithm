@@ -702,8 +702,28 @@ public class MidSolution {
         int num = 0;
 
 
-
         return num;
+    }
+
+    /**
+     * 396. 旋转函数【数学    F(1) = F(0) + Sum{num[i]} - n * a[n-1]】
+     *
+     * @param nums
+     * @return
+     */
+    public int maxRotateFunction(int[] nums) {
+        int sum = 0, o = 0;
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            o += (i * nums[i]);
+            sum += nums[i];
+        }
+        int ans = o;
+        for (int j = 1; j < len; j++) {
+            o = sum + o - (len * nums[len - j]);
+            ans = Math.max(ans, o);
+        }
+        return ans;
     }
 
 }

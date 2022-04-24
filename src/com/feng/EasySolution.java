@@ -1726,4 +1726,37 @@ public class EasySolution {
         return sb.toString();
     }
 
+    /**
+     * 868. 二进制间距
+     *
+     * @param n
+     * @return
+     */
+    public int binaryGap(int n) {
+        StringBuilder sb = new StringBuilder();
+        while (n > 0) {
+            sb.append(n % 2);
+            n /= 2;
+        }
+//        System.out.println(sb.reverse().toString());
+        int ans = 0;
+        int pre = -1;
+        int now = -1;
+        String str = sb.toString();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '1') {
+                if (pre == -1) {
+                    pre = i;
+                } else if (now == -1) {
+                    now = i;
+                }
+                if (pre != -1 && now != -1) {
+                    ans = Math.max(ans, now - pre);
+                    pre = now;
+                    now = -1;
+                }
+            }
+        }
+        return ans;
+    }
 }

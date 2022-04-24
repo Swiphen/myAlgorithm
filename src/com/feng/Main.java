@@ -6,6 +6,10 @@ import com.feng.sum_of_nums.SumOfNums;
 import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
 public class Main {
@@ -125,8 +129,12 @@ public class Main {
 //            System.out.println("value:" + value);
 //        }
 
-        String str = "hello-world-java-test";
-        String[] split = str.split("-", 2);
-        System.out.println("");
+//        String str = "hello-world-java-test";
+//        String[] split = str.split("-", 2);
+//        System.out.println("");
+
+//        LocalDate lastDayOf4 = LocalDate.parse("2022-04-02").with(TemporalAdjusters.lastInMonth(DayOfWeek.SUNDAY));
+//        System.out.println(lastDayOf4);
+
     }
 }

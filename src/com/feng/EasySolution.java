@@ -1759,4 +1759,52 @@ public class EasySolution {
         }
         return ans;
     }
+
+    /**
+     * 242. 有效的字母异位词
+     *
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isAnagram(String s, String t) {
+        int sn = s.length();
+        int tn = t.length();
+        if (sn != tn) {
+            return false;
+        }
+
+        Map<Character, Integer> map1 = new HashMap();
+        Map<Character, Integer> map2 = new HashMap();
+        for (int i = 0; i < sn; i++) {
+            map1.put(s.charAt(i), map1.getOrDefault(s.charAt(i), 0) + 1);
+        }
+        for (int i = 0; i < tn; i++) {
+            map2.put(t.charAt(i), map2.getOrDefault(t.charAt(i), 0) + 1);
+        }
+        for (Iterator<Character> it = map1.keySet().iterator(); it.hasNext(); ) {
+            Character key = it.next();
+            int val = map1.get(key);
+            if (map2.containsKey(key) && map2.get(key) == val) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean isAnagram1(String s, String t) {
+        int sn = s.length();
+        int tn = t.length();
+        if (sn != tn) {
+            return false;
+        }
+        char[] c1 = s.toCharArray();
+        char[] c2 = t.toCharArray();
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+        return Arrays.equals(c1,c2);
+    }
 }

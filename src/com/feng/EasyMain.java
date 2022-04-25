@@ -77,6 +77,7 @@ public class EasyMain {
 //        System.out.println(new EasySolution().mostCommonWord(str, banned));
 //        System.out.println(new EasySolution().toGoatLatin("The quick brown fox jumped over the lazy dog"));
 //        System.out.println(new EasySolution().shortestToChar("loveleetcode", 'e'));
-        System.out.println(new EasySolution().binaryGap(22));
+//        System.out.println(new EasySolution().binaryGap(22));
+        System.out.println(new EasySolution().isAnagram("anagram","nagaram"));
     }
 }

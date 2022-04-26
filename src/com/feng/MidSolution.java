@@ -726,4 +726,24 @@ public class MidSolution {
         return ans;
     }
 
+    /**
+     * 1233. 删除子文件夹
+     *
+     * @param folder
+     * @return
+     */
+    public List<String> removeSubfolders(String[] folder) {
+        List<String> list = new ArrayList<>();
+        Arrays.sort(folder);
+        list.add(folder[0]);
+        String str = folder[0] + "/";
+        for (int i = 1; i < folder.length; i++) {
+            if (folder[i].indexOf(str) == -1 || folder[i].indexOf(str) > 1) {
+                list.add(folder[i]);
+                str = folder[i] + "/";
+            }
+        }
+        return list;
+    }
+
 }

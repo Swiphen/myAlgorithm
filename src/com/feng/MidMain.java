@@ -52,7 +52,9 @@ public class MidMain {
 //        System.out.println(new MidSolution().trailingZeroes(30));
 //        int[] num = {3, 1, 3, 6};
 //        System.out.println(new MidSolution().canReorderDoubled(num));
-        int[] num = {4, 3, 2, 6};
-        System.out.println(new MidSolution().maxRotateFunction(num));
+//        int[] num = {4, 3, 2, 6};
+//        System.out.println(new MidSolution().maxRotateFunction(num));
+        String[] str = {"/c","/d/c/e"};
+        System.out.println(new MidSolution().removeSubfolders(str));
     }
 }

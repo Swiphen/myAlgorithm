@@ -1805,6 +1805,32 @@ public class EasySolution {
         char[] c2 = t.toCharArray();
         Arrays.sort(c1);
         Arrays.sort(c2);
-        return Arrays.equals(c1,c2);
+        return Arrays.equals(c1, c2);
     }
+
+
+    /**
+     * 883. 三维形体投影面积
+     *
+     * @param grid
+     * @return
+     */
+    public int projectionArea(int[][] grid) {
+        int n = grid.length;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int max1 = 0, max2 = 0;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] > 0) {
+                    ans++;
+                }
+                max1 = Math.max(max1, grid[i][j]);
+                max2 = Math.max(max2, grid[j][i]);
+            }
+            ans += (max1 + max2);
+        }
+        return ans;
+    }
+
+
 }

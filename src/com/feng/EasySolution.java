@@ -1832,5 +1832,32 @@ public class EasySolution {
         return ans;
     }
 
+    /**
+     * 1539. 第 k 个缺失的正整数
+     *
+     * @param arr
+     * @param k
+     * @return
+     */
+    public int findKthPositive(int[] arr, int k) {
+        int n = 0, i = 1;
+        while (n < k) {
+            int flag = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] == i) {
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag != 1) {
+                n++;
+            }
+            if (n != k) {
+                i++;
+            }
+        }
+        return i;
+    }
+
 
 }

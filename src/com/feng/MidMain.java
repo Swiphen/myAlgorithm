@@ -54,7 +54,11 @@ public class MidMain {
 //        System.out.println(new MidSolution().canReorderDoubled(num));
 //        int[] num = {4, 3, 2, 6};
 //        System.out.println(new MidSolution().maxRotateFunction(num));
-        String[] str = {"/c","/d/c/e"};
-        System.out.println(new MidSolution().removeSubfolders(str));
+//        String[] str = {"/c","/d/c/e"};
+//        System.out.println(new MidSolution().removeSubfolders(str));
+        String start = "AACCGGTT";
+        String end = "AAACGGTA";
+        String[] bank = {"AACCGGTA","AACCGCTA","AAACGGTA"};
+        System.out.println(new MidSolution().minMutation(start, end, bank));
     }
 }

@@ -1859,5 +1859,58 @@ public class EasySolution {
         return i;
     }
 
+    /**
+     * 937. 重新排列日志文件（未完成）
+     *
+     * @param logs
+     * @return
+     */
+    public String[] reorderLogFiles(String[] logs) {
+        Arrays.sort(logs);
+        List<String> strLog = new ArrayList<>();
+        List<String> numLog = new ArrayList<>();
+        String str = "abcdefghijklmnopqresuvwxyz";
+        String num = "0123456789";
+        for (int i = 0; i < logs.length; i++) {
+            char c = logs[i].split(" ")[1].charAt(0);
+            if (str.contains(String.valueOf(c))) {
+                numLog.add(logs[i]);
+            } else {
+                strLog.add(logs[i]);
+            }
+        }
+
+        Arrays.sort(strLog.toArray(), new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        });
+
+        return null;
+    }
+
+    /**
+     * 942. 增减字符串匹配
+     *
+     * @param s
+     * @return
+     */
+    public int[] diStringMatch(String s) {
+        int n = s.length();
+        int[] ans = new int[n + 1];
+        int lo = 0, hi = n;
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == 'I') {
+                ans[i] = lo++;
+            } else {
+                ans[i] = hi--;
+            }
+//            ans[i] = s.charAt(i) == 'I' ? lo++ : hi--;
+        }
+        ans[n] = lo;
+
+        return ans;
+    }
 
 }

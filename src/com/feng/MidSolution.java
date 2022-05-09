@@ -746,4 +746,23 @@ public class MidSolution {
         return list;
     }
 
+    /**
+     * 433. 最小基因变化（未完成）
+     *
+     * @param start
+     * @param end
+     * @param bank
+     * @return
+     */
+    public int minMutation(String start, String end, String[] bank) {
+        
+
+        for (int i = 0; i < bank.length; i++) {
+
+        }
+        Arrays.sort(bank);
+
+        return 0;
+    }
+
 }

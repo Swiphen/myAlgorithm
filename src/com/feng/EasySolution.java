@@ -1913,4 +1913,15 @@ public class EasySolution {
         return ans;
     }
 
+    /**
+     * 812. 最大三角形面积（未完成）
+     *
+     * @param points
+     * @return
+     */
+    public double largestTriangleArea(int[][] points) {
+
+        return 0;
+    }
+
 }
